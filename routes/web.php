@@ -94,3 +94,7 @@ Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
 
+Route::get('/returns', function () {
+    return view('shippingandreturns');
+})->name('ShippingandReturns');
+

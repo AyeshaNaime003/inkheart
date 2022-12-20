@@ -33,6 +33,9 @@
     .bg-light-pink{
         background-color: var(--light-pink);
     }
+    .bg-blue{
+        background-color: var(--blue);
+    }
     /* TEXT COLORS */
     .text-peach-pink{
         color: var(--peach-pink);
