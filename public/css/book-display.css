@@ -1,0 +1,97 @@
+/* CSS FOR ALL COMPONENTS FOR THE HOMEPAGE
+EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
+
+/* MOBILE FIRST APPROACH */
+
+/* xsmall */
+@media (min-width: 0px){
+    .button-slider{ 
+        border-bottom: solid var(--light-gray) 1px;  
+    }
+    [class*='button-slider'] button{
+        padding-bottom: 15px;
+        background-color: transparent;
+        border: none;
+        border-bottom: solid transparent 2px;
+        color: var(--dark);
+    }
+    .button-slider-pink button:hover{
+        border-bottom: solid var(--peach-pink) 2px;
+    }
+    .button-slider-dark button:hover{
+        border-bottom: solid var(--dark) 2px;
+    }    
+    /* BOOK DISPLAY */
+    #main [class*='button-slider'] button{
+        font-size: 0.8rem;
+    }
+    /* BOOK DETAILS */
+    #book-description{
+        display: block;
+        padding: 1% 0 3% 0;
+    }
+    #book-additional-info{
+        display: none;
+        padding: 1% 0 3% 0;
+    }
+    #book-reviews{
+        display: none;
+        padding: 1% 0 3% 0;
+    }
+    /* smaller width in xsmall and small devices */
+    .book-img-detail{
+        display: block;
+        margin: 0 auto;
+        width:90%; 
+    }
+    .book-name-detail{
+        margin: 0;
+        margin-bottom: 3%;
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+    .book-price-detail{
+        margin: 1% 0;
+        font-size: 1.9rem;
+        font-weight: 600;
+    }
+    .quantity-add-div button{
+        display: inline-block;
+        margin: 0 5px;
+    }
+    .quantity-add-div .quantity{
+        padding: 8px;
+        border: solid var(--peach-pink) 1px;
+        color: var(--peach-pink);
+        border-radius: 5px;
+        width: 100px;
+    }
+    .book-detail [class*='button-slider'] button{
+        font-size: 1rem;
+    }
+    .book-detail table, .book-deatail tr{
+        border: solid var(--dark) 1px;
+        border-collapse: collapse;
+    }
+}
+
+/* small */
+@media (min-width: 576px){
+}
+
+/* medium */
+@media (min-width: 768px) {
+    /* BOOK DISPLAY */
+    #main [class*='button-slider'] button{
+        font-size: 1rem;
+    }
+    /* BOOK DETAIL */
+    .book-img-detail{
+        width:100%; 
+    }
+}
+/* large */
+@media (min-width: 992px) {}
+
+/* x large */
+@media (min-width: 1200px) {}

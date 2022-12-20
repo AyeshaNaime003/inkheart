@@ -1,0 +1,187 @@
+/* CSS FOR BUTTONS, BACKGROUND COLORS, SHAPES */
+/* HEADER AND FOOTER */
+/* MOBILE FIRST APPROACH */
+/* x small */
+@media (min-width: 0px){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    a{
+        color: inherit;
+    }
+    :root {
+        --peach-pink: #FB6B90;
+        --light-pink: #ffc0cb;
+        --dark: #212529;
+        --hot-pink: #ff1493;
+        --light-gray: #d3d3d3;
+    }
+    /* BACKGROUNDS */
+    .bg-peach-pink{
+        background-color: var(--peach-pink);
+        color: white;
+    }
+    .bg-light-pink{
+        background-color: var(--light-pink);
+    }
+    .bg-hot-pink{
+        background-color: var(--hot-pink);
+    }
+    .bg-light-pink{
+        background-color: var(--light-pink);
+    }
+    /* TEXT COLORS */
+    .text-peach-pink{
+        color: var(--peach-pink);
+    }
+    .text-light-pink{
+        color: var(--light-pink);
+    }
+    .text-hot-pink{
+        color: var(--hot-pink);
+    }
+    /* BUTTONS */
+    .btn-outline-peach-pink{
+        border-color: var(--peach-pink);
+        color: var(--peach-pink);
+    }
+    .btn-peach-pink{
+        background-color: var(--peach-pink);
+        color: white;
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+    }
+    .btn-peach-pink:hover{
+        filter: brightness(0.8);
+    }
+    button a{
+        text-decoration: none;
+    }
+    button a:hover{
+        color: inherit;
+    }
+    .my-btn-bold{
+        height: fit-content;
+        padding: 0.5% 2%;
+        border: none;
+        border-radius: 4px;
+        font-size: large;
+    }
+    .my-btn-bold:hover{
+        font-weight: bold;
+    } 
+    /* LOGO */
+    .logo-img-header{
+        width: 30%;
+    }
+    .text-logo{
+        font-family: 'Pacifico', cursive;
+        font-size: 2rem;
+    }
+    /* HEADER row1 */
+    header form input[type='search']{
+        margin: 0 auto;
+        width: 80%;
+    }
+    /* HEADER: dropdown */
+    header .row2 .dropdown button{
+        color: white;
+    }
+    header .row2 .dropdown button:hover{
+        font-weight: bold;
+    }
+    header .row2 .dropdown .dropdown-menu a{
+        color: white;
+    }
+    header .row2 .dropdown .dropdown-menu a:hover{
+        color: var(--dark);
+    }
+    /* HEADER: navbar */
+    header .row2 .navbar .nav-link{
+        color: white;
+    }
+    header .row2 .navbar .nav-link h6:hover{
+        font-weight: bold;
+    }
+    header .row1 .header-icons:hover{
+        color: var(--peach-pink);
+    }
+    #cart-hover{
+        display: none;
+        width: 35vw;;
+        position: absolute;
+        right: 5%;
+        z-index: 1;
+        border-radius: 15px;
+    }
+    #cart-hover .cart-item{
+        /* border-bottom: solid #212529 1px; */
+        height: 120px;
+        padding: 1%px;
+    }
+    #cart-hover .item-img{
+        height: 100%;
+    }
+    #cart-hover .item-details{
+        text-align: left;
+        font-size: 0.8rem;
+        padding: 2%;
+    }
+    #cart-hover .item-details .item-name{
+        font-weight: bold;
+    }
+    /* FOOTER */
+    .logo-img-footer{
+        width: 40%;
+        filter: invert(100%);
+    }
+    footer ul{
+        list-style-position: inside;
+        list-style-type: none;
+        padding-left: 0;
+    }
+    footer a:hover{
+        color: inherit;
+        font-weight: bold;
+    }
+    footer .copyright{
+        opacity: 0.7;
+    }
+    .text-copyright{
+        font-size: 0.8rem;
+    }
+}
+/* small */
+@media (min-width: 576px){
+    .logo-img-header{
+        width: 30%;
+    }
+    .text-logo{
+        width: 70%;
+    }
+}
+/* medium */
+@media (min-width: 768px) {
+    .logo-img-header{
+        width: 30%;
+    }
+    .text-logo{
+        width: 70%;
+        font-size: 1.5rem;
+    }
+}
+/* large */
+@media (min-width: 992px) {
+    .logo-img-header{
+        width: 25%;
+    }
+    .text-logo{
+        width: 70%;
+        font-size: 2rem;
+    }
+}
+/* x large */
+@media (min-width: 1200px) {}

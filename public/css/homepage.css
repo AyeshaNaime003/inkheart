@@ -1,0 +1,68 @@
+/* CSS FOR ALL COMPONENTS FOR THE HOMEPAGE
+EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
+
+/* MOBILE FIRST APPROACH */
+
+/* xsmall */
+@media (min-width: 0px){
+    /* CAROUSEL */
+    #carousel1 .carousel-item{
+        width: 100%;
+        height: 50vh;
+    }
+    #carousel1 .carousel-item img{
+        height:100%; 
+        width:100%; 
+        filter: brightness(50%)
+    }
+    /* CARDS */
+    #myCards .material-symbols-outlined{
+        font-size: 2rem;
+    }
+    #myCards .circle{
+        border-radius: 50%;
+        aspect-ratio : 1 / 1;
+        width: 25%;
+    }
+    /* BESTSELLING */
+    #carousel2{
+        border-top: solid var(--dark) 5px;
+        border-bottom: solid var(--dark) 5px;
+    }
+    .book-img{
+        margin: auto;
+        display: block;
+        width:75%; 
+    }
+    .book-name{
+        font-size: 1.2rem;
+        margin: 5px auto;
+    }
+    .book-author{
+        letter-spacing: 0.5px;
+        margin: 2px auto;
+    }
+    .book-link{
+        text-decoration: none;
+    }
+    .book-link:hover{
+        color:inherit;
+        text-decoration: underline;
+    }
+}
+
+/* small */
+@media (min-width: 576px){
+}
+
+/* medium */
+@media (min-width: 768px) {
+    .book-img{
+        width:50%; 
+    }
+}
+/* large */
+@media (min-width: 992px) {}
+
+/* x large */
+@media (min-width: 1200px) {}

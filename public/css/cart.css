@@ -1,0 +1,56 @@
+/* CSS FOR CART, CHECKOUT, PAYMENT METHOD, CONFIRMATION */
+/* HEADER AND FOOTER */
+/* MOBILE FIRST APPROACH */
+/* x small */
+@media (min-width: 0px){
+    /* CART */
+    #cart{
+        text-align: center;
+    }
+    .cart-item{
+        width: 95%;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+    #cart .item-img-container{
+        padding-top: 3%;
+        padding-left: 3%;
+    }
+    #cart .cart-img {
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+    #cart .remove-link{
+        text-decoration: none;
+    }
+    #cart .item-quantity-form{
+        width: fit-content;
+    }
+    #cart .item-quantity{
+        width: 100%;
+        text-align: center;
+        color: var(--peach-pink);
+    }
+    #cart .item-quantity:hover{
+        border: 1px solid var(--peach-pink)
+    }    
+    #cart .remove-link:hover{
+        color: var(--peach-pink);
+    }
+}
+/* small */
+@media (min-width: 576px){}
+/* medium */
+@media (min-width: 768px) {
+    #cart .item-img-container{
+        padding: 0.5%;
+    }
+    #cart .cart-img {
+        width: 60%;
+    }
+}
+/* large */
+@media (min-width: 992px) {}
+/* x large */
+@media (min-width: 1200px) {}
