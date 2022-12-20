@@ -17,6 +17,7 @@
         --dark: #212529;
         --hot-pink: #ff1493;
         --light-gray: #d3d3d3;
+        --blue:#00308F;
     }
     /* BACKGROUNDS */
     .bg-peach-pink{
@@ -72,7 +73,10 @@
     }
     .my-btn-bold:hover{
         font-weight: bold;
-    } 
+    }
+    .icon{
+        color: var(--blue);
+    }
     /* LOGO */
     .logo-img-header{
         width: 30%;

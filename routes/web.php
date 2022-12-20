@@ -30,6 +30,10 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/signup', function () {
+    return view('signup');
+})->name('register');
+
 Route::get('/urdu', function () {
     return view('urdu-books');
 })->name('urdu');
