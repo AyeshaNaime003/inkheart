@@ -26,6 +26,10 @@ Route::get('/educative', function () {
     return view('educative-books');
 })->name('educative');
 
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
 Route::get('/urdu', function () {
     return view('urdu-books');
 })->name('urdu');
