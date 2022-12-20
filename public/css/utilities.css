@@ -111,7 +111,6 @@
     }
     #cart-hover{
         display: none;
-        width: 35vw;;
         position: absolute;
         right: 5%;
         z-index: 1;
@@ -129,9 +128,6 @@
         text-align: left;
         font-size: 0.8rem;
         padding: 2%;
-    }
-    #cart-hover .item-details .item-name{
-        font-weight: bold;
     }
     /* FOOTER */
     .logo-img-footer{

@@ -73,3 +73,16 @@ Route::get('/about-business', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::get('/book-detail', function () {
+    return view('book-detail');
+})->name('book-detail');
+
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
+
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');
+

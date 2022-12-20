@@ -19,87 +19,14 @@
     
     
     <!-- css link -->
-    <link rel="stylesheet" href="./utilities.css">
-    <link rel="stylesheet" href="./homepage4.css">
-    <link rel="stylesheet" href="./book-display.css">
+    <link rel="stylesheet" href={{url("css/utilities.css")}}>
+    <link rel="stylesheet" href={{url("css/homepage.css")}}>
+    <link rel="stylesheet" href={{url("css/book-display.css")}}>
 </head>
 <body>
-    <!-- The booksdeatils will come form the data -->
-    <!-- HEADER -->
-<header>
-    <!-- row 1: logo, search bar, user related stuff -->
-    <div class="px-3 py-2 text-bg-dark row1">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <!-- logo -->
-                <div class="col-12 col-sm-5 col-md-3 p-0">
-                    <a href="./homepage4.html" class="text-decoration-none text-light text-md-left my-2 d-block text-center"><img class="img-fluid logo-img-header" src="./logos/book.png" alt=""><span class="m-2 text-logo">InkHeart</span></a>
-                </div>  
-                <!-- search bar -->
-                <form class="col-12 col-sm-7 col-md-4 px-2 my-1" role="search">
-                    <input type="search" class="form-control d-block ml-md-0" placeholder="Search..." >
-                </form>
-                <!-- user related: login/signup, wishlist, cart -->
-                <div class="col-12 col-md-5 my-2 m-md-0 text-center d-md-flex justify-content-end">
-                    <button type="button" class="btn bg-peach-pink me-2">Login</button>
-                    <button type="button" class="btn btn-outline-peach-pink me-2">Sign-up</button>
-                    <a href="./wishlist.html" class="header-icons mx-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-clipboard-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M5 1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm5 0a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Z"/>
-                        <path d="M3 1.5h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
-                        <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z"/>
-                        </svg>
-                    </a>
-                    <a href="./cart.html" class="header-icons mx-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
-                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- row 2: menu bar for categories -->
-    <div class="container-fluid row2 p-0 m-0">
-        <!-- drop down for small screen -->
-        <div class="dropdown d-sm-none w-100 bg-peach-pink">
-            <button class="btn dropdown-toggle w-100 border-0" type="button" id="triggerId" data-bs-toggle="dropdown">Dropdown</button>
-            <div class="dropdown-menu w-100 bg-peach-pink">
-                <a class="dropdown-item" href="./educative-books.html">Educative</a>
-                <a class="dropdown-item" href="./urdu-books.html">Urdu</a>
-                <a class="dropdown-item" href="./islamic-books.html">Islamic</a>
-                <a class="dropdown-item" href="./leisure-books.html">Leisure</a>
-                <a class="dropdown-item" href="./bestsellers-books.html">Best Sellers</a>
-                <a class="dropdown-item" href="./recent-books.html">Recent in stock</a>
-            </div>
-        </div>
-        <!-- menu bar for large screens -->
-        <nav class="navbar navbar-expand-sm d-none d-sm-block bg-peach-pink">
-            <div class="container-fluid p-0 d-flex justify-content-center">
-                <ul class="navbar-nav">
-                  <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href="./educative-books.html"><h6>Educative</h6></a>
-                  </li>
-                  <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href="./urdu-books.html"><h6>Urdu</h6></a>
-                  </li>
-                  <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href="./islamic-books.html"><h6>Islamic</h6></a>
-                  </li>
-                  <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href="./lesiure-books.html"><h6>Leisure</h6></a>
-                  </li>
-                  <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href="./bestsellers-books.html"><h6>Best Sellers</h6></a>
-                  </li>
-                  <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href="./recent-books.html"><h6>Recent in stock</h6></a>
-                  </li>
-                </ul>
-            </div>
-          </nav>
-    </div>
-</header>
+<!-- HEADER -->
+@include('layouts/header-row1')
+@include('layouts/header-row2')
 <!-- HEADER -->
 
 
@@ -127,6 +54,7 @@
                 <div class="w-100 quantity-add-div d-flex align-items-center justify-content-start px-2">
                     <form action=""><input type="number" class="quantity" placeholder="1"></form>
                     <button class="btn-peach-pink">Add to Cart</button>
+                    <button class="btn btn-dark">Checkout</button>
                 </div>
                 <!-- slide of buttons-->
                 <div class="d-flex button-slider button-slider-detail button-slider-pink justify-content-around align-items-end g-2 mt-5 row w-100">
@@ -161,46 +89,7 @@
 
 
 <!-- FOOTER -->
-<footer>
-    <div class="container-fluid p-2 bg-peach-pink text-light">
-      <div class="row w-100">
-          <div class="col-6 col-md-3">
-              <a href="./homepage4.html" class="text-decoration-none text-light text-md-left my-2 d-block text-center"><img class="img-fluid logo-img-footer" src="./logos/book (1).png" alt=""><p class="m-auto text-logo">InkHeart</p></a>
-          </div>
-          <div class="col-6 col-md-3 text-center col1 p-2">
-              <h5 class="m-3">Customer Service</h5>
-              <ul>
-              <li><a href="#" class="text-decoration-none">Shipping and Returns</a></li>
-              <li><a href="#" class="text-decoration-none">Exchnage and Refund Policy</a></li>
-              <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
-              <li><a href="#" class="text-decoration-none">User Guide</a></li>
-              <li><a href="#" class="text-decoration-none">FAQs</a></li>
-              </ul>
-          </div>
-          <div class="col-6 col-md-3 text-center col2 p-2">
-              <h5 class="m-3">Products</h5>
-              <ul>
-              <li><a href="./educative-books.html" class="text-decoration-none">Educative</a></li>
-              <li><a href="./urdu-books.html" class="text-decoration-none">Urdu</a></li>
-              <li><a href="./islamic-books.html" class="text-decoration-none">Islamic</a></li>
-              <li><a href="./lesiure-books.html" class="text-decoration-none">Leisure</a></li>
-              <li><a href="./bestsellers-books.html" class="text-decoration-none">Best Sellers</a></li>
-              <li><a href="./recent-books.html" class="text-decoration-none">Recent in Stock</a></li>
-              </ul>
-          </div>
-          <div class="col-6 col-md-3 text-center col3 p-2">
-              <h5 class="m-3">About Us</h5>
-              <ul>
-              <li><a href="#" class="text-decoration-none">About the business</a></li>
-              <li><a href="#" class="text-decoration-none">Contact us</a></li>
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="copyright bg-peach-pink m-0 p-0">
-      <p class="text-copyright px-3">Copyright © 2022 InkHeart. The InkHeart is not responsible for the content of external sites. Read about our approach to external linking.</p>
-    </div>
-</footer>
+@include('layouts/footer')
 <!-- FOOTER -->
 
 

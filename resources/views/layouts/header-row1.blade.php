@@ -1,3 +1,14 @@
+<head>
+    <!-- icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+        
+        
+</head>
 <!-- HEADER -->
 <header>
     <!-- row 1: logo, search bar, user related stuff -->
@@ -28,49 +39,24 @@
                         <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z"/>
                         </svg>
                     </a>
-                    <a href="./cart.html" class="header-icons mx-1" onmouseover="document.getElementById('cart-hover').style.display='block'" 
+                    <a href={{route("cart")}} class="header-icons mx-1" onmouseover="document.getElementById('cart-hover').style.display='block'" 
                     onmouseleave="document.getElementById('cart-hover').style.display='none'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                        </svg>
-                        <div id="cart-hover" class="bg-light text-dark p-2" onmouseover="document.getElementById('cart-hover').style.display='block'" 
-                        onmouseleave="document.getElementById('cart-hover').style.display='none'">
-                            <div class="cart-item d-flex align-items-center">
-                                <div class="item-img-container h-100">
-                                    <img class="item-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt="">
-                                </div>
-                                <div class="item-details">
-                                    <p>
-                                        <span class="item-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, omnis?</span>
-                                        <span class='quantity'>3</span> x 
-                                        <span class="item-unit-price">1200</span> = 
-                                        <span class="item-total-price">3600</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="cart-item d-flex align-items-center">
-                                <div class="item-img-container h-100">
-                                    <img class="item-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt="">
-                                </div>
-                                <div class="item-details">
-                                    <p>
-                                        <span class="item-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, omnis?</span>
-                                        <span class='quantity'>3</span> x 
-                                        <span class="item-unit-price">1200</span> = 
-                                        <span class="item-total-price">3600</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="cart-subtotal d-flex justify-content-between py-2">
-                                <strong>Subtotal:</strong> 
-                                <strong><span class="subtotal">10800.00 PKR</span></strong>
-                            </div>
-                            <div class="button-holder d-flex justify-content-between">
-                                <button class="btn btn-outline-peach-pink">View cart</button>
-                                <button class="btn btn-dark">Checkout</button>
-                            </div>
-                        </div>
+                        </svg>                    
                     </a>
+                    <div id="cart-hover" class="bg-light text-dark p-2 col-4" onmouseover="document.getElementById('cart-hover').style.display='block'" 
+                    onmouseleave="document.getElementById('cart-hover').style.display='none'">
+                        @include('layouts/minicart')
+                        <div class="cart-subtotal d-flex justify-content-between py-2">
+                            <strong>Subtotal:</strong> 
+                            <strong><span class="subtotal">10800.00 PKR</span></strong>
+                        </div>
+                        <div class="button-holder d-flex justify-content-between">
+                            <a href={{route("cart")}}><button class="btn-peach-pink">View cart</button></a>
+                            <button class="btn btn-dark">Checkout</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
