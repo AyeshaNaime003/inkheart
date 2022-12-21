@@ -62,9 +62,9 @@ Route::get('/privacy-policy', function () {
     return view('privacy-policy');
 })->name('privacy-policy');
 
-Route::get('/TermsandServices', function () {
-    return view('Terms-Services');
-})->name('Terms-Services');
+Route::get('/TermsandConditions', function () {
+    return view('Terms-Conditions');
+})->name('Terms-Conditions');
 
 Route::get('/about-business', function () {
     return view('about-business');
