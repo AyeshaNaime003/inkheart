@@ -26,6 +26,14 @@ Route::get('/educative', function () {
     return view('educative-books');
 })->name('educative');
 
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('/signup', function () {
+    return view('signup');
+})->name('register');
+
 Route::get('/urdu', function () {
     return view('urdu-books');
 })->name('urdu');
@@ -85,4 +93,8 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
+
+Route::get('/returns', function () {
+    return view('shippingandreturns');
+})->name('ShippingandReturns');
 
