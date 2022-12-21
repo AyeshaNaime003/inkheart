@@ -11,8 +11,7 @@
               <li><a href={{route('ShippingandDelivery')}} class="text-decoration-none">Shipping and Delivery</a></li>
               <li><a href={{route('exchange-refund')}} class="text-decoration-none">Exchnage and Refund Policy</a></li>
               <li><a href={{route('privacy-policy')}} class="text-decoration-none">Privacy Policy</a></li>
-              <li><a href={{route('user-guide')}} class="text-decoration-none">User Guide</a></li>
-              <li><a href={{route('faqs')}} class="text-decoration-none">FAQs</a></li>
+              <li><a href={{route('Terms-Services')}} class="text-decoration-none">Terms and Services</a></li>
               </ul>
           </div>
           <div class="col-6 col-md-3 text-center col2 p-2">
