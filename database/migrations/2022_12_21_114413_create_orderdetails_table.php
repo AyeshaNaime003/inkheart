@@ -28,6 +28,9 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('amount');
             $table->timestamps();
+
+            // making the coposition of two attributes unique
+            $table->unique(['ISBN', 'order_id']);
         });
     }
 

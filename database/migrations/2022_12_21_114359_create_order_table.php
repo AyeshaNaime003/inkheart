@@ -28,6 +28,7 @@ return new class extends Migration
             $table->bigInteger('state_id');
             $table->foreign('state_id')->references('state_id')->on('state')->onDelete('cascade');
             
+            $table->string('phone_number');
             $table->string('country')->default('Pakistan');
             $table->string('postal_code')->nullable();
             $table->string('address');
