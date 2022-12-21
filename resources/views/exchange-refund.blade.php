@@ -40,7 +40,7 @@
     <!--Main Body -->
     <div class="jumbotron">
         <div class="container ">
-            <h1 class="mt-2">Returns And Exchange Policy</h1>
+            <h1 class="mt-4">Returns And Exchange Policy</h1>
             <h4 class="mt-4"> Terms & Conditions:</h4>
         </div>
         <div class="container ">

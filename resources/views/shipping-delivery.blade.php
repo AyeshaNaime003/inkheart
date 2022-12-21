@@ -31,7 +31,7 @@
 
     <div class="jumbotron">
         <div class="container ">
-          <h1 class="mt-2">Shipping & Delivery</h1>
+          <h1 class="mt-4">Shipping & Delivery</h1>
           <p class="mt-4"> We pack your order with extra care and get it to you as fast as we can.</p>
           <p>Processing and Delivery</p>
         </div>

@@ -40,7 +40,7 @@
     <!--Main Body -->
     <div class="jumbotron">
         <div class="container ">
-            <h1 class="mt-2">Privacy Policy</h1>
+            <h1 class="mt-4">Privacy Policy</h1>
             <p class="mt-4">(Effective as of December 21, 2022)</p>
         </div>
         <div class="container ">
@@ -103,7 +103,7 @@
 
         <div class="container ">
             <h4 class="mt-2">Third-Party cookies</h4>
-            <p class="mt-4">We use third-party cookies to collect statistics in aggregate form in analysis tools such
+            <p class="mt-4 mb-4">We use third-party cookies to collect statistics in aggregate form in analysis tools such
                 as Google Analytics and Core Metrics. The cookies used are both permanent and temporary cookies (session
                 cookies). The permanent cookies are stored on your computer or mobile device for no longer than 24
                 months.

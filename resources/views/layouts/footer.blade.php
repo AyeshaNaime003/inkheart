@@ -9,7 +9,7 @@
               <h5 class="m-3">Customer Service</h5>
               <ul>
               <li><a href={{route('ShippingandDelivery')}} class="text-decoration-none">Shipping and Delivery</a></li>
-              <li><a href={{route('exchange-refund')}} class="text-decoration-none">Exchnage and Refund Policy</a></li>
+              <li><a href={{route('exchange-refund')}} class="text-decoration-none">Exchange and Refund Policy</a></li>
               <li><a href={{route('privacy-policy')}} class="text-decoration-none">Privacy Policy</a></li>
               <li><a href={{route('Terms-Services')}} class="text-decoration-none">Terms and Services</a></li>
               </ul>
