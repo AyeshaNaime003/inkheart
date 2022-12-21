@@ -8,7 +8,7 @@
           <div class="col-6 col-md-3 text-center col1 p-2">
               <h5 class="m-3">Customer Service</h5>
               <ul>
-              <li><a href={{route('shipping-returns')}} class="text-decoration-none">Shipping and Delivery</a></li>
+              <li><a href={{route('ShippingandDelivery')}} class="text-decoration-none">Shipping and Delivery</a></li>
               <li><a href={{route('exchange-refund')}} class="text-decoration-none">Exchnage and Refund Policy</a></li>
               <li><a href={{route('privacy-policy')}} class="text-decoration-none">Privacy Policy</a></li>
               <li><a href={{route('user-guide')}} class="text-decoration-none">User Guide</a></li>

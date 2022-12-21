@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // HOME PAGE LINKS
-Route::get('/homepage', function () {
+Route::get('/', function () {
     return view('homepage');
 })->name('homepage');
 
@@ -54,10 +54,6 @@ Route::get('/recent', function () {
     return view('recent-books');
 })->name('recent');
 
-Route::get('/shipping-returns', function () {
-    return view('shipping-returns');
-})->name('shipping-returns');
-
 Route::get('/exchange-refund', function () {
     return view('exchange-refund');
 })->name('exchange-refund');
@@ -94,7 +90,7 @@ Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
 
-Route::get('/returns', function () {
-    return view('shippingandreturns');
-})->name('ShippingandReturns');
+Route::get('/shipping-delivery', function () {
+    return view('shipping-delivery');
+})->name('ShippingandDelivery');
 

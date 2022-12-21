@@ -23,10 +23,13 @@
     <section class="vh-100">
         <div class="container-fluid h-custom" >
           <div class="row d-flex justify-content-center align-items-center h-100 ">
+
+          <!--Side Image-->
             <div class="col-md-9 col-lg-6 col-xl-5 float-lg-left ">
               <img src="https://img.freepik.com/free-vector/characters-people-holding-giant-digital-devices_53876-32614.jpg?size=626&ext=jpg"
                 class="img-fluid" alt="Sample image">
             </div>
+            <!-- Form-->
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mt-4">
               <form>
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
@@ -73,10 +76,11 @@
                   <a href="#!" class="text-body">Forgot password?</a>
                 </div>
 
+                <!-- Login-->
                 <div class="text-center text-lg-start mt-4 pt-2 align-items-center">
                   <button type="button" class=" btn bg-peach-pink btn-lg"
                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="./signup.html"
+                  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href= {{url("signup")}}
                       class="link-danger">Register</a></p>
                 </div>
 
