@@ -40,23 +40,27 @@
                                     <form method="POST" id="contactForm" name="contactForm">
                                         <div class="row">
                                             <div class="col-md-6">
+                                                <!-- Name -->
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" name="name"
                                                         id="name" placeholder="Name">
                                                 </div>
                                             </div>
+                                            <!-- Email-->
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <input type="email" class="form-control" name="email"
                                                         id="email" placeholder="Email">
                                                 </div>
                                             </div>
+                                            <!-- Subject-->
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" name="subject"
                                                         id="subject" placeholder="Subject">
                                                 </div>
                                             </div>
+                                            <!-- Message-->
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message"></textarea>
@@ -74,6 +78,7 @@
                                 </div>
                             </div>
                             <div class="col-md-5 d-flex align-items-stretch mt-4">
+                                <!--Contact Us-->
                                 <div class="info-wrap bg-light-pink w-100 p-lg-5 p-4 ">
                                     <h3 class="mb-4 mt-md-4  ">Contact us</h3>
                                     <div class="dbox w-100 d-flex align-items-start">
