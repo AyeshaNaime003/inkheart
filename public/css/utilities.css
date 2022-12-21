@@ -117,7 +117,7 @@
         border-radius: 15px;
     }
     #cart-hover .cart-item{
-        /* border-bottom: solid #212529 1px; */
+        border: none;
         height: 120px;
         padding: 1%px;
     }

@@ -1,6 +1,7 @@
 /* CSS FOR CART, CHECKOUT, PAYMENT METHOD, CONFIRMATION */
 /* HEADER AND FOOTER */
 /* MOBILE FIRST APPROACH */
+
 /* x small */
 @media (min-width: 0px){
     /* CART */
@@ -11,6 +12,7 @@
         width: 95%;
         margin: 0 auto;
         border-radius: 20px;
+        border: 1px solid lightgray;
     }
     #cart .item-img-container{
         padding-top: 3%;
@@ -37,27 +39,6 @@
     }    
     #cart .remove-link:hover{
         color: var(--peach-pink);
-    }
-    /* CART SUMMARY */
-    #cart-summary .cart-item{
-        height: 120px;
-        padding: 1%px;
-    }
-    #cart-summary .item-img{
-        height: 100%;
-    }
-    #cart-summary .item-details{
-        text-align: left;
-        font-size: 0.8rem;
-        padding: 2%;
-    }
-    #shipping-address, #payment-method, #cart-summary, #receipt{
-        width: 97%;
-        margin: 0 auto;
-        border: solid 1px lightgray;
-        border-radius: 20px;
-        margin: 2%;
-        padding: 3%;
     }
 }
 /* small */

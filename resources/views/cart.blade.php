@@ -19,13 +19,13 @@
 @include('layouts/header-row1')
 <!-- HEADER -->
 
-<div class="d-none d-md-block bg-peach-pink text-center py-5" style="font-size: 3rem; font-weight: bold; letter-spacing: 2px;">
+<div class="d-none d-md-block bg-peach-pink text-center py-4" style="font-size: 2.5rem; font-weight: bold; letter-spacing: 2px;">
     Cart
 </div>
 
 <section id="cart">
     <div class="container-fluid py-3 px-2">
-        <div class="cart-item border row align-items-center">
+        <div class="cart-item row align-items-center">
             <div class="col-2 col-md item-img-container">
                 <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
             </div>
@@ -49,7 +49,7 @@
                 <span class="item-total-price">600 PKR</span>
             </div>
         </div>
-        <div class="cart-item border row align-items-center">
+        <div class="cart-item  row align-items-center">
             <div class="col-2 col-md item-img-container">
                 <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
             </div>
@@ -73,7 +73,7 @@
                 <span class="item-total-price">600 PKR</span>
             </div>
         </div>
-        <div class="cart-item border row align-items-center">
+        <div class="cart-item row align-items-center">
             <div class="col-2 col-md item-img-container">
                 <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
             </div>
@@ -97,7 +97,7 @@
                 <span class="item-total-price">600 PKR</span>
             </div>
         </div>
-        <div class="cart-item border row align-items-center">
+        <div class="cart-item  row align-items-center">
             <div class="col-2 col-md item-img-container">
                 <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
             </div>
@@ -124,8 +124,9 @@
     </div>
 </section>
 
-<section id="receipt">
-    <div class="container-fluid px-3 my-4 border">
+
+<div class="container-fluid">
+    <div id="receipt">
         <table class="w-100">
             <tr>
                 <th class="py-2">Subtotal:</th>
@@ -141,8 +142,8 @@
             </tr>
         </table>
     </div>
+</div>
 
-</section>
 
 <div class="btn-container d-flex align-items-center justify-content-between px-4">
     <a href={{url()->previous()}}> <button class="btn btn-block btn-peach-pink p-2 m-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">

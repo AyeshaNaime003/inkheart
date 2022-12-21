@@ -13,13 +13,13 @@
     <!-- css link -->
     <link rel="stylesheet" href={{url("css/utilities.css")}}>
     <link rel="stylesheet" href={{url("css/cart.css")}}>
-
+    <link rel="stylesheet" href={{url("css/shipping-payment.css")}}>
 </head>
 <body>
 {{-- HEADER --}}
 @include('layouts/header-row1')
 
-<div class="d-none d-md-block bg-peach-pink text-center py-5" style="font-size: 3rem; font-weight: bold; letter-spacing: 2px;">
+<div class="d-none d-md-block bg-peach-pink text-center py-4" style="font-size: 2.5rem; font-weight: bold; letter-spacing: 2px;">
     Checkout
 </div>
 
@@ -32,34 +32,51 @@
                             <div class="col-12" id="shipping-address">
                                 <h3>Shipping Address</h3>
                                 <label class="d-block" for="">Full Name</label>
-                                <input class="d-block w-90" type="text">
+                                <input class="d-block" type="text" name="full-name">
 
-                                <label class="d-block" for="">Province:</label>
-                                <input class="d-block w-90" type="text">
+                                <div class="d-flex">
+                                <div class="w-50">
+                                        <label class="d-block" for="">State:</label>
+                                        <select class="d-block" name="state" id="">
+                                            <option value="lorem">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                        </select>
+                                    </div>
 
-                                <label class="d-block" for="">City:</label>
-                                <select class="d-block w-90" name="" id="">
-                                    <option value="">Lorem.</option>
-                                    <option value="">Lorem.</option>
-                                    <option value="">Lorem.</option>
-                                    <option value="">Lorem.</option>
-                                    <option value="">Lorem.</option>
-                                    <option value="">Lorem.</option>
-                                </select>
+                                    <div class="w-50">
+                                        <label class="d-block" for="">City:</label>
+                                        <select class="d-block" name="city" id="" >
+                                            <option value="lorem">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                            <option value="">Lorem.</option>
+                                        </select>
+                                    </div>
+                                </div>
+
 
                                 <label class="d-block" for="">Street Address:</label>
-                                <input class="d-block w-90" type="text" placeholder="Street Name and House Number">
-                                <input class="d-block w-90" type="text" placeholder="Apartment, suite, unit etc. (optional)">
+                                <input class="d-block" type="text" placeholder="Street Name and House Number"
+                                name="street-house">
+                                <input class="d-block" type="text" placeholder="Apartment, suite, unit etc. (optional)" name="extra">
 
                                 <label class="d-block" for="">Phone Number:</label>
-                                <input class="d-block w-90" type="number">
+                                <input class="d-block" type="number" name="phone-number">
 
-                                <label class="d-block" for="">Username:</label>
-                                <input class="d-block w-90" type="email">
+                                <label class="d-block" for="">Email:</label>
+                                <input class="d-block w-90" type="email" name="email">
                             </div>
                             <div class="col-12" id="payment-method">
                                 <h3>Payment Method:</h3>
-                                <input type="radio" value="COD">Cash on Delivery
+                                <ul>
+                                    <li> <input type="radio" value="COD" name="payment-method"><span>Cash on Delivery</span></li>
+                                </ul>
                             </div>
                         </div>
                     </form>
@@ -88,6 +105,9 @@
                             </div>
                         </div>
                     </div>
+                    <a href={{}}>
+                        <button class="btn btn-dark">Confirm Order</button>
+                    </a>
                 </div>
             </div>
      </div>
