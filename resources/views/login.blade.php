@@ -31,9 +31,9 @@
             </div>
             <!-- Form-->
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mt-4">
-              <form action="{{route('user-home')}}" method="post">
+              <form action="{{route('login')}}" method="post">
                 <!-- any form being submitted via post method can not be submitted without a CSRF token, give error -->
-                {{ csrf_field() }}
+                @csrf
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                   <p class="lead fw-normal mb-0 me-3 me-auto p-2 ">Sign in with</p>
                   <button type="button" class=" p-2 bd-highlight btn-circle btn-md border border-white bg-peach-pink btn-floating mx-1">

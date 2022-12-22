@@ -31,7 +31,10 @@
                 <!-- user related: login/signup, wishlist, cart -->
                 <div class="col-12 col-md-5 my-2 m-md-0 text-center d-md-flex justify-content-end">
                     @if (Auth::user())
-                        <a href="{{route('logout')}}"><button type="button" class="btn bg-peach-pink me-2">Logout</button></a>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                        <button type="submit" class="btn bg-peach-pink me-2">Logout</button>
+                        </form>
                         <a href="{{url('signup')}}"><button type="button" class="btn btn-outline-peach-pink me-2">Profile</button></a>
                     @else
                     <a href="{{url('login')}}"><button type="button" class="btn bg-peach-pink me-2">Login</button></a>
@@ -44,7 +47,7 @@
                         <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z"/>
                         </svg>
                     </a>
-                    <a href={{route("cart")}} class="header-icons mx-1" onmouseover="document.getElementById('cart-hover').style.display='block'"
+                    <a href="{{route('cart')}}" class="header-icons mx-1" onmouseover="document.getElementById('cart-hover').style.display='block'"
                     onmouseleave="document.getElementById('cart-hover').style.display='none'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>

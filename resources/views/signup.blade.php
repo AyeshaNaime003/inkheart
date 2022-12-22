@@ -39,7 +39,7 @@
                                 @endif
 
                                 <!-- Form-->
-                                <form class="mx-1 mx-md-4" action="{{route('login')}}" method="post" >
+                                <form class="mx-1 mx-md-4" action="{{route('signup')}}" method="post" >
                                     <!-- any form being submitted via post method can not be submitted without a CSRF token, give error -->
                                     @csrf
                                     <!-- Name -->

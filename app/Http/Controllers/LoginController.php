@@ -8,7 +8,17 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 
 class LoginController extends Controller
-{
+{   
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('login');
+    }
+
     /**
      * Handle an authentication attempt.
      *
@@ -29,10 +39,14 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $check_email = request('email');
             session(['email' => $check_email]);
-            session(['guest' => 'false']);
+
+            // getting user id to retrieve name and email
+            $id = Auth::id();
+            $name = User::select('first_name')->where('user_id', '=', $id)->get();
             $user = User::where('email', '=', $check_email)->get();
 
-            return redirect()->route('user-home')->with($user->toArray());
+            $url = "/$name";
+            return redirect($url);
         }
  
         return back()->withErrors([
@@ -48,9 +62,7 @@ class LoginController extends Controller
      */
     public function logout(Request $request) {
         Auth::logout();
-        $user = Auth::user();
-        $user = compact('user');
-
-        return view('login');
+        session()->flush();
+        return redirect()->route('homepage');
     }
 }

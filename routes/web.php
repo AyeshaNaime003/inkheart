@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +16,24 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-// Sign Up
+// SIGN UP PAGE
+// open sign up page
 Route::get('/signup', [CustomerController::class, 'index'])->name('signup');
-Route::post('/login', [CustomerController::class, 'store'])->name('login');
-// Authentication
-Route::post('/', [LoginController::class, 'authenticate'])->name('user-home');
-// Homepage 
-// Route::get('/', [LoginController::class, 'home'])->name('homepage');
-// Logout
-Route::get('/login', [LoginController::class, 'logout'])->name('logout');
+// submit sign up form and redirect to login via store function
+Route::post('/signup', [CustomerController::class, 'store']);
+// LOGIN PAGE
+// open login page
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+// authenticate user 
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+
+// HOME PAGE
+// redirect to homepage for logged in user
+Route::get('/{name}', [HomeController::class, 'index'])->name('homepage');
+// logout authenticated user
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 
 // HOME PAGE LINKS
@@ -39,14 +49,6 @@ Route::get('/', function () {
 Route::get('/educative', function () {
     return view('educative-books');
 })->name('educative');
-
-// Route::get('/login', function () {
-//     return view('login');
-// })->name('login');
-
-// Route::get('/signup', function () {
-//     return view('signup');
-// })->name('register');
 
 Route::get('/urdu', function () {
     return view('urdu-books');
