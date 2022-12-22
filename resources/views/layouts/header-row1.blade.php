@@ -17,7 +17,9 @@
             <div class="row align-items-center">
                 <!-- logo -->
                 <div class="col-12 col-sm-5 col-md-3 p-0">
-                    <a href="{{route('homepage')}}" class="text-decoration-none text-light text-md-left my-2 d-block text-center"><img class="img-fluid logo-img-header" src={{url("logos/book.png")}} alt=""><span class="m-2 text-logo">InkHeart</span></a>
+                    <a href="{{route('homepage')}}" class="text-decoration-none text-light text-md-left my-2 d-block text-center">
+                        <img class="img-fluid logo-img-header" src="{{url('logos/book.png')}}" alt=""><span class="m-2 text-logo">InkHeart</span>
+                    </a>
                 </div>
                 <!-- search bar -->
                 <form class="col-12 col-sm-7 col-md-4 px-2 my-1" role="search">
@@ -30,15 +32,16 @@
                 </form>
                 <!-- user related: login/signup, wishlist, cart -->
                 <div class="col-12 col-md-5 my-2 m-md-0 text-center d-md-flex justify-content-end">
+                    
                     @if (Auth::user())
                         <form action="{{route('logout')}}" method="post">
                             @csrf
-                        <button type="submit" class="btn bg-peach-pink me-2">Logout</button>
+                            <a href=""><button type="submit" class="btn bg-peach-pink me-2">Logout</button></a>
                         </form>
                         <a href="{{url('signup')}}"><button type="button" class="btn btn-outline-peach-pink me-2">Profile</button></a>
                     @else
-                    <a href="{{url('login')}}"><button type="button" class="btn bg-peach-pink me-2">Login</button></a>
-                    <a href="{{url('signup')}}"><button type="button" class="btn btn-outline-peach-pink me-2">Sign-up</button></a>
+                        <a href="{{url('login')}}"><button type="button" class="btn bg-peach-pink me-2">Login</button></a>
+                        <a href="{{url('signup')}}"><button type="button" class="btn btn-outline-peach-pink me-2">Sign-up</button></a>
                     @endif
                     <a href="./wishlist.html" class="header-icons mx-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-clipboard-heart" viewBox="0 0 16 16">

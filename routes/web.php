@@ -21,6 +21,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/signup', [CustomerController::class, 'index'])->name('signup');
 // submit sign up form and redirect to login via store function
 Route::post('/signup', [CustomerController::class, 'store']);
+
 // LOGIN PAGE
 // open login page
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -30,7 +31,13 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 // HOME PAGE
 // redirect to homepage for logged in user
-Route::get('/{name}', [HomeController::class, 'index'])->name('homepage');
+// Route::get('/{name}', [HomeController::class, 'index'])->name('home');
+
+Route::get('/educative', function () {
+    return view('educative-books');
+})->name('educative');
+
+
 // logout authenticated user
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -46,9 +53,7 @@ Route::get('/', function () {
 //     return view('homepage')->with(compact($previousSearch, $search));
 // })->name('homepage');
 
-Route::get('/educative', function () {
-    return view('educative-books');
-})->name('educative');
+
 
 Route::get('/urdu', function () {
     return view('urdu-books');

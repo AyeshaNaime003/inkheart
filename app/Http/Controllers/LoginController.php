@@ -39,14 +39,9 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $check_email = request('email');
             session(['email' => $check_email]);
+            // $user = User::where('email', '=', $check_email)->get();
 
-            // getting user id to retrieve name and email
-            $id = Auth::id();
-            $name = User::select('first_name')->where('user_id', '=', $id)->get();
-            $user = User::where('email', '=', $check_email)->get();
-
-            $url = "/$name";
-            return redirect($url);
+            return redirect()->route('homepage');
         }
  
         return back()->withErrors([

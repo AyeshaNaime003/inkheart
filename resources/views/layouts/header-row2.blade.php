@@ -5,8 +5,8 @@
         <div class="dropdown d-sm-none w-100 bg-peach-pink">
             <button class="btn dropdown-toggle w-100 border-0" type="button" id="triggerId" data-bs-toggle="dropdown">Dropdown</button>
             <div class="dropdown-menu w-100 bg-peach-pink">
-                <a class="dropdown-item" href={{route('educative')}}>Educative</a>
-                <a class="dropdown-item" href={{route('urdu')}}>Urdu</a>
+                <a class="dropdown-item" href="{{route('educative')}}">Educative</a>
+                <a class="dropdown-item" href="{{route('urdu')}}">Urdu</a>
                 <a class="dropdown-item" href={{route('islamic')}}>Islamic</a>
                 <a class="dropdown-item" href={{route('leisure')}}>Leisure</a>
                 <a class="dropdown-item" href={{route('bestsellers')}}>Best Sellers</a>
@@ -18,22 +18,22 @@
             <div class="container-fluid p-0 d-flex justify-content-center">
                 <ul class="navbar-nav">
                   <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href={{route('educative')}}><h6>Educative</h6></a>
+                    <a class="nav-link active" href="{{route('educative')}}"><h6>Educative</h6></a>
                   </li>
                   <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href={{route('urdu')}}><h6>Urdu</h6></a>
+                    <a class="nav-link active" href="{{route('urdu')}}"><h6>Urdu</h6></a>
                   </li>
                   <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href={{route('islamic')}}><h6>Islamic</h6></a>
+                    <a class="nav-link active" href="{{route('islamic')}}"><h6>Islamic</h6></a>
                   </li>
                   <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href={{route('leisure')}}><h6>Leisure</h6></a>
+                    <a class="nav-link active" href="{{route('leisure')}}"><h6>Leisure</h6></a>
                   </li>
                   <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href={{route('bestsellers')}}><h6>Best Sellers</h6></a>
+                    <a class="nav-link active" href="{{route('bestsellers')}}"><h6>Best Sellers</h6></a>
                   </li>
                   <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active" href={{route('recent')}}><h6>Recent in stock</h6></a>
+                    <a class="nav-link active" href="{{route('recent')}}"><h6>Recent in stock</h6></a>
                   </li>
                 </ul>
             </div>
