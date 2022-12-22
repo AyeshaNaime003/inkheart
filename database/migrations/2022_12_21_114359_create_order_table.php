@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id('order_id');
-            // foreign key from customer table
-            $table->bigInteger('customer_id');
-            $table->foreign('customer_id')->references('customer_id')->on('customer')->onDelete('cascade');
+            // foreign key from user table
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             // foreign key from paymentdetails table
             $table->bigInteger('payment_id');
             $table->foreign('payment_id')->references('payment_id')->on('paymentdetails')->onDelete('cascade');

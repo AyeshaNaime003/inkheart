@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Sign Up
+Route::get('/signup', [CustomerController::class, 'index'])->name('signup');
+Route::post('/login', [CustomerController::class, 'store'])->name('login');
+// Authentication
+Route::post('/', [LoginController::class, 'authenticate'])->name('user-home');
+// Homepage 
+// Route::get('/', [LoginController::class, 'home'])->name('homepage');
+// Logout
+Route::get('/login', [LoginController::class, 'logout'])->name('logout');
+
+
 // HOME PAGE LINKS
 Route::get('/', function () {
     return view('homepage');
@@ -26,13 +40,13 @@ Route::get('/educative', function () {
     return view('educative-books');
 })->name('educative');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+// Route::get('/login', function () {
+//     return view('login');
+// })->name('login');
 
-Route::get('/signup', function () {
-    return view('signup');
-})->name('register');
+// Route::get('/signup', function () {
+//     return view('signup');
+// })->name('register');
 
 Route::get('/urdu', function () {
     return view('urdu-books');

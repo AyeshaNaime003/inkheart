@@ -18,9 +18,9 @@ return new class extends Migration
             // foreign key from book
             $table->string('ISBN');
             $table->foreign('ISBN')->references('ISBN')->on('book')->onDelete('cascade');
-            // foreign key from customer
-            $table->bigInteger('customer_id');
-            $table->foreign('customer_id')->references('customer_id')->on('customer')->onDelete('cascade');
+            // foreign key from users
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             
             $table->string('review');
             $table->date('date');

@@ -10,7 +10,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!--External CSS-->
-    <link rel="stylesheet" href={{ 'css/utilities.css' }}>
+    <link rel="stylesheet" href="{{'css/utilities.css'}}">
 
     <!--Icons and Script Bootstrap-->
     <script src="https://example.com/fontawesome/v5.15.4/js/all.js" data-auto-a11y="true"></script>
@@ -33,16 +33,26 @@
 
                                 <!-- Signup -->
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                                <!-- Error Handling -->
+                                @if (session('error'))
+                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                @endif
 
                                 <!-- Form-->
-                                <form class="mx-1 mx-md-4">
-
+                                <form class="mx-1 mx-md-4" action="{{route('login')}}" method="post" >
+                                    <!-- any form being submitted via post method can not be submitted without a CSRF token, give error -->
+                                    @csrf
                                     <!-- Name -->
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fa fa-user fa-lg me-3 fa-fw icon mt-4"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">Your Name</label>
-                                            <input type="text" id="form3Example1c" class="form-control" />
+                                            <input type="text" name="name" id="form3Example1c" class="form-control" />
+                                            <span class="text-danger">
+                                                @error('name')
+                                                    {{$message}}
+                                                @enderror 
+                                            </span>
 
                                         </div>
                                     </div>
@@ -52,7 +62,12 @@
                                         <i class="fa fa-envelope fa-lg me-3 fa-fw icon mt-4"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example3c">Your Email</label>
-                                            <input type="email" id="form3Example3c" class="form-control" />
+                                            <input type="email" name="email" id="form3Example3c" class="form-control" />
+                                            <span class="text-danger">
+                                                @error('email')
+                                                    {{$message}}
+                                                @enderror 
+                                            </span>
 
                                         </div>
                                     </div>
@@ -62,7 +77,12 @@
                                         <i class="fa fa-lock fa-lg me-3 fa-fw icon mt-4"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example4c">Password</label>
-                                            <input type="password" id="form3Example4c" class="form-control" />
+                                            <input type="password" name="password" id="form3Example4c" class="form-control" />
+                                            <span class="text-danger">
+                                                @error('password')
+                                                    {{$message}}
+                                                @enderror 
+                                            </span>
 
                                         </div>
                                     </div>
@@ -71,25 +91,44 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fa fa-key fa-lg me-3 fa-fw icon icon mt-4"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example4cd">Repeat your password</label>
-                                            <input type="password" id="form3Example4cd" class="form-control" />
+                                            <label class="form-label" for="form3Example4cd">Confirm Password</label>
+                                            <input type="password" name="password_confirmation" id="form3Example4cd" class="form-control" />
+                                            <span class="text-danger">
+                                                @error('password_confirmation')
+                                                    {{$message}}
+                                                @enderror 
+                                            </span>
 
                                         </div>
                                     </div>
 
                                     <!-- Terms and Service -->
-                                    <div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value=""
+                                    <div class="form-check d-flex justify-content-center mb-4">
+                                        <input class="form-check-input me-2" name="checkbox" type="checkbox" value=""
                                             id="form2Example3c" />
                                         <label class="form-check-label" for="form2Example3">
-                                            I agree all statements in <a href={{route('Terms-Conditions')}}>Terms and Conditions</a>
-                                        </label>
+                                            I agree all statements in <a href="{{route('Terms-Conditions')}}">Terms and Conditions <br></a>
+                                            <span class="text-danger ">
+                                                @php 
+                                                    $msg="Please check this box!";
+                                                @endphp
+                                                @error('checkbox')
+                                                    {{$msg}}
+                                                @enderror 
+                                            </span>
+                                        </label> 
                                     </div>
 
-                                    <div class="d-flex justify-content-between mx-4 mb-3 mb-lg-4">
-                                        <button type="button" class="btn bg-peach-pink btn-lg">Register</button>
-                                        <a href={{ url('/') }}><button type="button"
-                                                class="btn bg-peach-pink btn-lg">Back to Home</button></a>
+                                    <!-- Register button -->
+                                    <div class="d-flex justify-content-center mb-2 mb-lg-1">
+                                        <button class="btn bg-peach-pink btn-lg ">Register</button>
+                                    </div>
+                                    
+                                    <!-- Home link -->
+                                    <div class="d-flex justify-content-center mb-3">
+                                    <!-- <a href="{{ url('/') }}">Home</a> -->
+                                        <p class=" mt-2 pt-1 mb-0">Back to <a href= "{{url('/')}}"
+                        class="link-danger">Home</a></p>
                                     </div>
 
                                 </form>
