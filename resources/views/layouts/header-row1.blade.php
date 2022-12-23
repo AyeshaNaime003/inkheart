@@ -22,13 +22,10 @@
                     </a>
                 </div>
                 <!-- search bar -->
-                <form class="col-12 col-sm-7 col-md-4 px-2 my-1" role="search">
-                    <input type="search" name="search" class="form-control d-block ml-md-0" placeholder="Search...">
-                    {{-- @if($previousSearch)
-                        {{$search}}
-                    @else
-                        {{"Search..."}}
-                    @endif> --}}
+                <form class="col-12 col-sm-7 col-md-4 px-2 my-1" role="search" action="{{route('search')}}" method="post">
+                    @csrf
+                    <input type="search" name="search" class="form-control d-block ml-md-0" placeholder="Search..." value=@stack('search')>
+                    <button type='submit'></button>
                 </form>
                 <!-- user related: login/signup, wishlist, cart -->
                 <div class="col-12 col-md-5 my-2 m-md-0 text-center d-md-flex justify-content-end">

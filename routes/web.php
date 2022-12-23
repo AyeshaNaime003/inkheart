@@ -53,7 +53,8 @@ Route::get('/', function () {
 //     return view('homepage')->with(compact($previousSearch, $search));
 // })->name('homepage');
 
-
+// SEARCH BAR IN THE HEADER
+Route::post('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/urdu', function () {
     return view('urdu-books');
