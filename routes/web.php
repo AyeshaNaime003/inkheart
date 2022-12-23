@@ -25,7 +25,7 @@ Route::post('/signup', [CustomerController::class, 'store']);
 // LOGIN PAGE
 // open login page
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-// authenticate user 
+// authenticate user
 Route::post('/login', [LoginController::class, 'authenticate']);
 
 
@@ -111,4 +111,7 @@ Route::get('/checkout', function () {
 Route::get('/shipping-delivery', function () {
     return view('shipping-delivery');
 })->name('ShippingandDelivery');
+Route::get('/adminhome', function () {
+    return view('adminhome');
+})->name('adminhome');
 
