@@ -15,9 +15,37 @@ class BookDisplayController extends Controller
         $books = searchQuery($search = $request['search']??"", null);
         return view('search-result')->with(compact('books', 'search'));
     }
-    public function filter(Request $request){
+    public function searchFilter(Request $request){
         $search=$request['search'];
         $books = searchQuery($request['search'], $request['filter']);
         return view('search-result')->with(compact('books', 'search'));
     }
+
+    public function type($type){
+        if($type=='educative'){
+            $typeNum = 2;
+        }else if($type=='urdu'){
+            $typeNum = 3;
+        }else if($type=='leisure'){
+            $typeNum = 4;
+        }else if($type=='islamic'){
+            $typeNum = 5;
+        }
+        $books = typeQuery($typeNum, null, null);
+        $view_page = $type."-books";
+        return view($view_page)->with(compact('books'));
+    }
+
+    public function typeFilter($type, Request $req){
+        $books = typeQuery(2, $req['filter'], null);
+        $view_page = $type."-books";
+        return view($view_page)->with(compact('books'));
+    }
+
+    public function typeCategory($type, $category){
+        $books = typeQuery($type, null, $category);
+        $view_page = $type."-books";
+        return view($view_page)->with(compact('books'));
+    }
+
 }

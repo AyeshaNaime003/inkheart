@@ -30,42 +30,65 @@
 @include('layouts/header-row2')
 {{-- HEADER --}}
 
-<!-- DISPLAY -->
-<section id="main" class="container-fluid p-0 my-3">
-    <div class="d-flex align-items-center justify-content-between px-5">
-        <h1 class="display-6 mx-2 my-3">Educative Books</h1>
-        <form action="">
-            <select name="" id="">
-                <option value="1">Bestselling</option>
-                <option value="1">Lowest to highest price</option>
-                <option value="1">Highest to lowest price</option>
-                <option value="1">Oldest to Newest Books</option>
-                <option value="1">Newest to Oldest Books</option>
-            </select>
-        </form>
-    </div>
-    <!-- slide of filters-->
-    <div class="d-flex button-slider button-slider-pink justify-content-around align-items-end g-2 mt-2 row w-100">
-        <button class="col-3 col-md">History</button>
-        <button class="col-3 col-md">Medical</button>
-        <button class="col-3 col-md">Computing</button>
-        <button class="col-3 col-md">Business and Accounting</button>
-        <button class="col-3 col-md">Chemistry</button>
-        <button class="col-3 col-md">Physics</button>
-        <button class="col-3 col-md">Exam Preparation</button>
-    </div>
-    <!-- books -->
-    @include('layouts/book-display')
-    <!-- pages -->
-    <div class="pages d-flex justify-content-center align-items-center">
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">First</button>
-        <button class="bg-peach-pink mx-2 btn">&lt&lt</button>
-        <button class="bg-dark text-light btn mx-2">Current Page</button>
-        <button class="bg-peach-pink mx-2 btn">&gt&gt</button>
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">Last</button>
-    </div>
-</section>
-<!-- DISPLAY -->
+
+{{-- HEADING AND FILTER --}}
+<div class="d-flex align-items-center justify-content-between px-5">
+    @if($books->isEmpty())
+    <h1 class="display-6 mx-2 my-3">No Results found</h1>
+@else
+    <h1 class="display-6 mx-2 my-3">Educative Books:</h1>
+@endif
+    <form action="{{url('')}}/{{"educative"}}" method='post'>
+        @csrf
+        <select name="filter" id="">
+            <option value="bestselling">Bestselling</option>
+            <option value="lth">Lowest to highest price</option>
+            <option value="htl">Highest to lowest price</option>
+        </select>
+        <button class="btn-peach-pink">Apply filter</button>
+    </form>
+</div>
+<!-- slide of filters-->
+<div class="row button-slider align-items-center text-center button-slider-pink g-2 mt-2 w-100">
+    <a href="{{url('')}}/{{'educative'}}/{{'History'}}" class="col-4 col-md-3 col-lg mx-auto">History</a>
+    <a href="{{url('')}}/{{'educative'}}/{{'Medical'}}" class="col-4 col-md-3 col-lg mx-auto">Medical</a>
+    <a href="{{url('')}}/{{'educative'}}/{{'Computing'}}" class="col-4 col-md-3 col-lg mx-auto">Computing</a>
+    <a href="{{url('')}}/{{'educative'}}/{{'Business and Accounting'}}" class="col-4 col-md-3 col-lg mx-auto">Business and Accounting</a>
+    <a href="{{url('')}}/{{'educative'}}/{{'Chemistry'}}" class="col-4 col-md-3 col-lg mx-auto">Chemistry</a>
+    <a href="{{url('')}}/{{'educative'}}/{{'Physics'}}" class="col-4 col-md-3 col-lg mx-auto">Physics</a>
+    <a href="{{url('')}}/{{'educative'}}/{{'Exam Preparation'}}" class="col-4 col-md-3 col-lg mx-auto">Exam Preparation</a>
+</div>
+
+
+{{-- MAIN DISPLAY --}}
+@php 
+    $counter = 0; 
+    $books=$books->toArray();
+    $running = True;
+    // CALCULATE NUMBER OF ROWS NEEDED
+    $rows = (count($books)/6) + 1;
+@endphp
+<div class="book-display w-100 py-0 px-2 m-0 text-center">        
+    {{-- RUN LOOP TO RUN THE FIVE ROWS --}}
+    @for($i=1; $i<=$rows; $i++)
+        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
+        @foreach(array_slice($books, $counter, 6) as $book)
+            <div class="book col-6 col-md-4 col-lg-3 col-xl-2 py-3 mx-auto">
+                <a href="" class="book-link">
+                <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
+                <h5 class="book-name">{{$book['title']}}</h5>
+                </a>
+                <p class="book-author">{{$book['name']}}</p>
+                <p cla mt-ss="book-price">RS {{$book['price']}}</p>
+                <button class="btn btn-success add-to-cart">Add to Cart</button>
+            </div>
+        @endforeach
+        @php $counter += 6; @endphp
+        </div>
+    @endfor
+</div>
+
+
 
 {{-- FOOTER --}}
 @include('layouts/footer')

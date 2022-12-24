@@ -75,10 +75,6 @@
             </div>
         @endfor
     </div>
-    <div class="pages d-flex justify-content-center align-items-center my-3">
-        {{-- WILL SHOW THE FIRST #) --}}
-        
-    </div>
 
 
     {{-- FOOTER --}}
