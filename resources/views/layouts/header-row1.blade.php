@@ -7,6 +7,12 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
 
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- css link -->
+    <link rel="stylesheet" href={{url("css/utilities.css")}}>
 
 </head>
 <!-- HEADER -->
@@ -36,11 +42,7 @@
                             <a href=""><button type="submit" class="btn bg-peach-pink me-2">Logout</button></a>
                         </form>
                         <a href="{{url('signup')}}"><button type="button" class="btn btn-outline-peach-pink me-2">Profile</button></a>
-                    @else
-                        <a href="{{url('login')}}"><button type="button" class="btn bg-peach-pink me-2">Login</button></a>
-                        <a href="{{url('signup')}}"><button type="button" class="btn btn-outline-peach-pink me-2">Sign-up</button></a>
-                    @endif
-                    <a href="{{route('cart')}}" class="header-icons mx-1" onmouseover="document.getElementById('cart-hover').style.display='block'"
+                        <a href="{{route('cart')}}" class="header-icons mx-1" onmouseover="document.getElementById('cart-hover').style.display='block'"
                     onmouseleave="document.getElementById('cart-hover').style.display='none'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
@@ -58,6 +60,11 @@
                             <button class="btn btn-dark">Checkout</button>
                         </div>
                     </div>
+                    @else
+                        <a href="{{url('login')}}"><button type="button" class="btn bg-peach-pink me-2">Login</button></a>
+                        <a href="{{url('signup')}}"><button type="button" class="btn btn-outline-peach-pink me-2">Sign-up</button></a>
+                    @endif
+
                 </div>
             </div>
         </div>

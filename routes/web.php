@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,19 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// BOOK DETAIL PAGE
+// open page for a specific book
+Route::get('/book-detail/{isbn}', [BookController::class, 'index'])->name('book-detail');
+
+// CART PAGE
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+// to insert new item into cart
+Route::post('/add-cart', [CartController::class, 'store']);
+// to edit the quantity of item
+Route::post('/edit-cart', [CartController::class, 'edit']);
+// to remove item from cart
+Route::post('/delete-item', [CartController::class, 'destroy']);
 
 // SIGN UP PAGE
 // open sign up page
@@ -99,10 +114,6 @@ Route::get('/contact', function () {
 Route::get('/book-detail', function () {
     return view('book-detail');
 })->name('book-detail');
-
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart');
 
 Route::get('/checkout', function () {
     return view('checkout');
