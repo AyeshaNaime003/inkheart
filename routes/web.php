@@ -115,3 +115,10 @@ Route::get('/adminhome', function () {
     return view('adminhome');
 })->name('adminhome');
 
+Route::get('/editbook', function () {
+    return view('editbook');
+})->name('editbook');
+
+Route::get('/addbook', function () {
+    return view('addbook');
+})->name('addbook');

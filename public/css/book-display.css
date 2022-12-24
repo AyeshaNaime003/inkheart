@@ -5,8 +5,8 @@ EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
 
 /* xsmall */
 @media (min-width: 0px){
-    .button-slider{ 
-        border-bottom: solid var(--light-gray) 1px;  
+    .button-slider{
+        border-bottom: solid var(--light-gray) 1px;
     }
     [class*='button-slider'] button{
         padding-bottom: 15px;
@@ -20,7 +20,7 @@ EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
     }
     .button-slider-dark button:hover{
         border-bottom: solid var(--dark) 2px;
-    }    
+    }
     /* BOOK DISPLAY */
     #main [class*='button-slider'] button{
         font-size: 0.8rem;
@@ -42,7 +42,7 @@ EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
     .book-img-detail{
         display: block;
         margin: 0 auto;
-        width:90%; 
+        width:90%;
     }
     .book-name-detail{
         margin: 0;
@@ -50,10 +50,31 @@ EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
         font-size: 2.5rem;
         font-weight: 600;
     }
+    .book-details{
+        margin: 0;
+        margin-bottom: 3%;
+        font-size: 1.5rem;
+        font-weight: 600;
+        width: 70%;
+    }
+    .button{
+        width: 25%;
+    }
+    .book-price{
+        margin-bottom: 3%;
+        margin-left: 2%;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
     .book-price-detail{
         margin: 1% 0;
         font-size: 1.9rem;
         font-weight: 600;
+    }
+    .category{
+       margin-left: 50%;
+       border: none;
+       padding: 1%;
     }
     .quantity-add-div button{
         display: inline-block;
@@ -87,7 +108,7 @@ EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
     }
     /* BOOK DETAIL */
     .book-img-detail{
-        width:100%; 
+        width:100%;
     }
 }
 /* large */
