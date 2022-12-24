@@ -26,7 +26,7 @@
         Home
     </div>
     <div class="btn-container d-flex align-items-center justify-content-between px-4">
-        <h1>Name of the Admin</h1>
+        <h2>Name of the Admin</h2>
         <a href=""><button class="btn btn-block bg-light-pink m-2">Add New Book</button></a>
     </div>
     <section id="cart">
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="col-1 col-md remove">
-                    <a href="" class="remove-link"><svg xmlns="http://www.w3.org/2000/svg" width="25"
+                    <a href="" onclick="return confirm('Are you sure you want to delete this item?');" class="remove-link"><svg xmlns="http://www.w3.org/2000/svg" width="25"
                             height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                             <path
                                 d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -171,6 +171,14 @@
                                     </svg><span class="d-none d-sm-inline">Edit</span></a>
                             </div>
                         </div>
+                    </div>
+                    <!-- pages -->
+                    <div class="pages d-flex justify-content-center align-items-center">
+                        <button class="btn btn-outline btn-outline-peach-pink mx-2">First</button>
+                        <button class="bg-peach-pink mx-2 btn">&lt&lt</button>
+                        <button class="bg-dark text-light btn mx-2">Current Page</button>
+                        <button class="bg-peach-pink mx-2 btn">&gt&gt</button>
+                        <button class="btn btn-outline btn-outline-peach-pink mx-2">Last</button>
                     </div>
     </section>
 
