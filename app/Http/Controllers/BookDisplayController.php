@@ -9,9 +9,6 @@ use App\Models\Category;
 
 class BookDisplayController extends Controller
 {   
-    public function searchQuery($sea){
-
-    }
     public function search(Request $request)
     {
         // GET THE WORDS TO PERFORM SEARCH
