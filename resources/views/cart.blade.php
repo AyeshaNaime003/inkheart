@@ -25,102 +25,75 @@
 
 <section id="cart">
     <div class="container-fluid py-3 px-2">
-        <div class="cart-item row align-items-center">
-            <div class="col-2 col-md item-img-container">
-                <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
-            </div>
-            <div class="col col-md">
-                <span class="item-name">Lorem ipsum dolor sit amet.</span>
-            </div>
-            <div class="col-1 col-md remove">
-                <a href="" class="remove-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-            </svg><span class="d-none d-sm-inline">Remove</span></a>
-            </div>
-            <div class="col-2 col-md">300 PKR</div>
-            <div class="col-2">
-                <form action="" class="col-4 item-quantity-form">
-                    <input type="number" class="item-quantity m-auto">
-                </form>
-            </div>
-            <div class="col-12 col-md">
-                <Strong>Subtotal:</Strong>
-                <span class="item-total-price">600 PKR</span>
-            </div>
-        </div>
-        <div class="cart-item  row align-items-center">
-            <div class="col-2 col-md item-img-container">
-                <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
-            </div>
-            <div class="col col-md">
-                <span class="item-name">Lorem ipsum dolor sit amet.</span>
-            </div>
-            <div class="col-1 col-md remove">
-                <a href="" class="remove-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-            </svg><span class="d-none d-sm-inline">Remove</span></a>
-            </div>
-            <div class="col-2 col-md">300 PKR</div>
-            <div class="col-2">
-                <form action="" class="col-4 item-quantity-form">
-                    <input type="number" class="item-quantity m-auto">
-                </form>
-            </div>
-            <div class="col-12 col-md">
-                <Strong>Subtotal:</Strong>
-                <span class="item-total-price">600 PKR</span>
-            </div>
-        </div>
-        <div class="cart-item row align-items-center">
-            <div class="col-2 col-md item-img-container">
-                <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
-            </div>
-            <div class="col col-md">
-                <span class="item-name">Lorem ipsum dolor sit amet.</span>
-            </div>
-            <div class="col-1 col-md remove">
-                <a href="" class="remove-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-            </svg><span class="d-none d-sm-inline">Remove</span></a>
-            </div>
-            <div class="col-2 col-md">300 PKR</div>
-            <div class="col-2">
-                <form action="" class="col-4 item-quantity-form">
-                    <input type="number" class="item-quantity m-auto">
-                </form>
-            </div>
-            <div class="col-12 col-md">
-                <Strong>Subtotal:</Strong>
-                <span class="item-total-price">600 PKR</span>
-            </div>
-        </div>
-        <div class="cart-item  row align-items-center">
-            <div class="col-2 col-md item-img-container">
-                <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
-            </div>
-            <div class="col col-md">
-               <span class="item-name">Lorem ipsum dolor sit amet.</span></strong>
-            </div>
-            <div class="col-1 col-md remove">
-                <a href="" class="remove-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-            </svg><span class="d-none d-sm-inline">Remove</span></a>
-            </div>
-            <div class="col-2 col-md">300 PKR</div>
-            <div class="col-2">
-                <form action="" class="col-4 item-quantity-form">
-                    <input type="number" class="item-quantity m-auto">
-                </form>
-            </div>
-            <div class="col-12 col-md">
-                <Strong>Subtotal:</Strong>
-                <span class="item-total-price">600 PKR</span>
-            </div>
-        </div>
+        @if (empty($cart_books))
+            <p>No items in cart</p>
+        @else
+            @php 
+                $counter = 0;
+            @endphp
+            
+            @foreach ($cart_books as $book)
+                <div class="cart-item row align-items-center">
+                    <div class="col-2 col-md item-img-container">
+                        <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
+                    </div>
+                    <div class="col col-md">
+                        <span class="item-name">{{$book[0]['title']}}</span>
+                    </div>
+                    <div class="col-1 col-md remove">
+                        <form action="{{url('/delete-item')}}" method="post">
+                            @csrf
+                            <button name="delete-btn" class="btn remove-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg><span class="d-none d-sm-inline">Remove</span></button>
+                        </form>
+                    </div>
+
+                    <div class="col-2 col-md">{{$book[0]['price']}}</div>
+                    <!-- saving price and quantity value for subtotal calculation -->
+                    @php 
+                    $price = $book[0]['price'];
+                    $cart = session()->get('cart');
+                        foreach ($cart as $item) {
+                            $index = array_search($book[0]['ISBN'], $item);
+                        }
+                        $quantity = $cart[$index][1];
+
+                        session()->flash('temp_isbn', $book[0]['ISBN'])
+                    @endphp
+                    
+                    <div class="col-2 d-flex justify-content-center align-items-center">
+                        <form action="{{url('/edit-cart')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="bookid" value="$book[0]['ISBN']"/>
+                            <!-- to decrement book quantity -->
+                            <button class="btn" name="decrease" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/></svg>
+                                </button>
+                            <p class="text-centre my-auto inline" style="display:inline;">{{$quantity}}</p>
+                            <!-- to increment book quantity -->
+                            <button class="btn" name="increase">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md">
+                        <Strong>Subtotal:</Strong>
+                        <span class="item-total-price">{{bcmul($price, $quantity, 2)}}</span>
+                    </div>
+                </div>
+                @php 
+                    $counter++;
+                @endphp
+            @endforeach
+        @endif
+        
     </div>
 </section>
 

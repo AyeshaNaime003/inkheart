@@ -39,6 +39,10 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $check_email = request('email');
             session(['email' => $check_email]);
+
+            // adding cart for authorized user
+            $cart = array();
+            session(['cart' => $cart]);
             // $user = User::where('email', '=', $check_email)->get();
 
             return redirect()->route('homepage');
