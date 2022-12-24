@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\BookDisplayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,13 +64,14 @@ Route::get('/', function () {
     return view('homepage');
 })->name('homepage');
 
-// Route::get('/homepage/?search={search}', function ($search) {
-//     $previousSearch = True;
-//     return view('homepage')->with(compact($previousSearch, $search));
-// })->name('homepage');
 
-// SEARCH BAR IN THE HEADER
-Route::post('/search', [HomeController::class, 'search'])->name('search');
+// **  BOOK DSIPLAY PAGES  **
+// SEARCH BAR 
+Route::post('/search', [BookDisplayController::class, 'search'])->name('search');
+
+// FILTER IN BOOK DISPLAY
+// Route::get('/filter', [BookDisplayController::class, 'filter'])->name('filter');
+Route::post('/filter', [BookDisplayController::class, 'filter'])->name('filter');
 
 Route::get('/urdu', function () {
     return view('urdu-books');
@@ -126,3 +128,10 @@ Route::get('/adminhome', function () {
     return view('adminhome');
 })->name('adminhome');
 
+Route::get('/editbook', function () {
+    return view('editbook');
+})->name('editbook');
+
+Route::get('/addbook', function () {
+    return view('addbook');
+})->name('addbook');

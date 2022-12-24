@@ -19,9 +19,9 @@
       
       
         <!-- css link -->
-        <link rel="stylesheet" href={{url("css/utilities.css")}}>
         <link rel="stylesheet" href={{url("css/homepage.css")}}>
         <link rel="stylesheet" href={{url("css/book-display.css")}}>
+        <link rel="stylesheet" href={{url("css/utilities.css")}}>
     </head>
 <body>
     @push('search')
@@ -29,23 +29,65 @@
     @endpush
     @include('layouts.header-row1')
     @include('layouts.header-row2')
-    <pre>
-        @php
-        print_r($books);
-        @endphp
-    </pre>
-    <div class="book-display w-100 py-0 px-2 m-0 text-center">
-        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
-            <div class="book col-6 col-md-4 col-lg-2 py-3 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author m-0">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-        </div>
+    
+    {{-- HEADING AND FILTER --}}
+    <div class="d-flex align-items-center justify-content-between px-5">
+        @if($books->isEmpty())
+        <h1 class="display-6 mx-2 my-3">No Results found</h1>
+    @else
+        <h1 class="display-6 mx-2 my-3">Search Results:</h1>
+    @endif
+        <form action="{{route('filter')}}" method='post'>
+            @csrf
+            <input type="hidden" name='search' value={{$search}}>
+            <select name="filter" id="">
+                <option value="bestselling">Bestselling</option>
+                <option value="lth">Lowest to highest price</option>
+                <option value="htl">Highest to lowest price</option>
+            </select>
+            <button class="btn-peach-pink">Apply filter</button>
+        </form>
     </div>
+    {{-- MAIN BOOK DISPLAY --}}
+    <div class="book-display w-100 py-0 px-2 m-0 text-center">        
+        {{-- RUN LOOP TO RUN THE FIVE ROWS --}}
+        @php 
+            $counter = 0; 
+            $books=$books->toArray();
+        @endphp
+        @for($i=0; $i<5; $i++)
+            <div class="row w-100 justify-content-center align-items-center g-2 my-3">
+            @foreach(array_slice($books, $counter, 6) as $book)
+                <div class="book col-6 col-md-4 col-lg-2 py-3 mx-auto">
+                    <a href="" class="book-link">
+                    <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
+                    <h5 class="book-name">{{$book['title']}}</h5>
+                    </a>
+                    <p class="book-author">{{$book['name']}}</p>
+                    <p cla mt-ss="book-price">RS {{$book['price']}}</p>
+                    <button class="btn btn-success add-to-cart">Add to Cart</button>
+                </div>
+            @endforeach
+            @php $counter += 6; @endphp
+            </div>
+        @endfor
+    </div>
+    {{-- BUTTONS TO GO TO NEXR/PREVIOUS PAGES --}}
+    <div class="pages d-flex justify-content-center align-items-center my-3">
+        {{-- WILL SHOW THE FIRST #) --}}
+        <button class="btn btn-outline btn-outline-peach-pink mx-2" >First</button>
+        {{-- PREVIOUS 30 --}}
+        <button class="bg-peach-pink mx-2 btn">&lt&lt</button>
+        <button class="bg-dark text-light btn mx-2" disabled>Current Page</button>
+        {{-- NEXT 30 --}}
+        <button class="bg-peach-pink mx-2 btn">&gt&gt</button>
+        {{-- ALL THAT ARE LEFT AFTER DIVION BY 30 --}}
+        <button class="btn btn-outline btn-outline-peach-pink mx-2">Last</button>
+    </div>
+
+
+    {{-- FOOTER --}}
+    @include('layouts/footer')
+    {{-- FOOTER --}}
 </body>
 </html>
