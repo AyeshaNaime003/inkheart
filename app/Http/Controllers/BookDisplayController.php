@@ -45,6 +45,7 @@ class BookDisplayController extends Controller
     public function typeCategory($type, $category){
         $books = typeQuery($type, null, $category);
         $view_page = $type."-books";
+        echo "getting books of type=$type and category=$category";
         return view($view_page)->with(compact('books'));
     }
 
