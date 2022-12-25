@@ -8,15 +8,19 @@ EXCEPT HEADER AND FOOTER-> REFER `utilities.css` */
     .button-slider{
         border-bottom: solid var(--light-gray) 1px;
     }
-    [class*='button-slider'] button{
+    [class*='button-slider'] a{
         padding-bottom: 15px;
         background-color: transparent;
         border: none;
+
         border-bottom: solid transparent 2px;
         color: var(--dark);
+        text-decoration: none;
     }
-    .button-slider-pink button:hover{
+
+    .button-slider-pink a:hover{
         border-bottom: solid var(--peach-pink) 2px;
+        color: var(--dark);
     }
     .button-slider-dark button:hover{
         border-bottom: solid var(--dark) 2px;

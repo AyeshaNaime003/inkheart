@@ -25,300 +25,75 @@
       </head>
 <body>
 
-<!-- HEADER -->
+{{-- HEADER --}}
 @include('layouts/header-row1')
 @include('layouts/header-row2')
-<!-- HEADER -->
+{{-- HEADER --}}
 
-<!-- DISPLAY -->
-<section id="main" class="container-fluid p-0 my-3">
-    <div class="d-flex align-items-center justify-content-between px-5">
-        <h1 class="display-6 mx-2 my-3">Leisure Books</h1>
-        <form action="">
-            <select name="" id="">
-                <option value="1">Bestselling</option>
-                <option value="1">Lowest to highest price</option>
-                <option value="1">Highest to lowest price</option>
-                <option value="1">Oldest to Newest Books</option>
-                <option value="1">Newest to Oldest Books</option>
-            </select>
-        </form>
-    </div>
-    <!-- slide of button for  more than medium -->
-    <div class="d-flex button-slider button-slider-pink justify-content-around align-items-end g-2 mt-2 row w-100">
-        <button class="col-3 col-md">Fiction</button>
-        <button class="col-3 col-md">Romance</button>
-        <button class="col-3 col-md">Thriller</button>
-        <button class="col-3 col-md">Mystery</button>
-        <button class="col-3 col-md">Classics</button>
-    </div>
-    <!-- books -->
-    <div class="book-display w-100 py-0 px-2 m-0 text-center">
-        <!-- 30 books per pages -->    
+
+{{-- HEADING AND FILTER --}}
+<div class="d-flex align-items-center justify-content-between px-5">
+    @if($books->isEmpty())
+    <h1 class="display-6 mx-2 my-3">No Results found</h1>
+@else
+    <h1 class="display-6 mx-2 my-3">Leisure Books:</h1>
+@endif
+    <form action="{{url('')}}/{{"leisure"}}" method='post'>
+        @csrf
+        <select name="filter" id="">
+            <option value="bestselling">Bestselling</option>
+            <option value="lth">Lowest to highest price</option>
+            <option value="htl">Highest to lowest price</option>
+        </select>
+        <button class="btn-peach-pink">Apply filter</button>
+    </form>
+</div>
+<!-- slide of filters-->
+<div class="row button-slider align-items-center text-center button-slider-pink g-2 mt-2 w-100">
+    <a href="{{url('')}}/{{'leisure'}}/{{'fiction'}}" class="col-4 col-md-3 col-lg mx-auto">Fiction</a>
+    <a href="{{url('')}}/{{'leisure'}}/{{'romance'}}" class="col-4 col-md-3 col-lg mx-auto">Romance</a>
+    <a href="{{url('')}}/{{'leisure'}}/{{'thriller'}}" class="col-4 col-md-3 col-lg mx-auto">Thriller</a>
+    <a href="{{url('')}}/{{'leisure'}}/{{'mystery'}}" class="col-4 col-md-3 col-lg mx-auto">Mystery</a>
+    <a href="{{url('')}}/{{'leisure'}}/{{'classic'}}" class="col-4 col-md-3 col-lg mx-auto">Classics</a>
+</div>
+
+
+{{-- MAIN DISPLAY --}}
+@php 
+    $counter = 0; 
+    $books=$books->toArray();
+    $running = True;
+    // CALCULATE NUMBER OF ROWS NEEDED
+    $rows = (count($books)/6) + 1;
+@endphp
+<div class="book-display w-100 py-0 px-2 m-0 text-center">        
+    {{-- RUN LOOP TO RUN THE FIVE ROWS --}}
+    @for($i=1; $i<=$rows; $i++)
         <div class="row w-100 justify-content-center align-items-center g-2 my-3">
-            <div class="col-6 col-md-4 col-lg-2 py-3 mx-auto">
+        @foreach(array_slice($books, $counter, 6) as $book)
+            <div class="book col-6 col-md-4 col-lg-3 col-xl-2 py-3 mx-auto">
                 <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
+                <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
+                <h5 class="book-name">{{$book['title']}}</h5>
                 </a>
-                <p class="book-author m-0">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
+                <p class="book-author">{{$book['name']}}</p>
+                <p cla mt-ss="book-price">RS {{$book['price']}}</p>
                 <button class="btn btn-success add-to-cart">Add to Cart</button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
+        @endforeach
+        @php $counter += 6; @endphp
         </div>
+    @endfor
+</div>
 
-        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
-            <div class="col-6 col-md-4 col-lg-2 py-3 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author m-0">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-        </div>
 
-        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
-            <div class="col-6 col-md-4 col-lg-2 py-3 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author m-0">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-        </div>
 
-        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
-            <div class="col-6 col-md-4 col-lg-2 py-3 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author m-0">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
-            <div class="col-6 col-md-4 col-lg-2 py-3 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author m-0">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mx-auto">
-                <a href="" class="book-link">
-                    <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                    <h5 class="book-name">The Song Of Achilles</h5>
-                </a>
-                <p class="book-author">Madelline Miller</p>
-                <p cla mt-ss="book-price">RS 1695</p>
-                <button class="btn btn-success add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-    </div>
-    <!-- pages -->
-    <div class="pages d-flex justify-content-center align-items-center">
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">First</button>
-        <button class="bg-peach-pink mx-2 btn">&lt&lt</button>
-        <button class="bg-dark text-light btn mx-2">Current Page</button>
-        <button class="bg-peach-pink mx-2 btn">&gt&gt</button>
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">Last</button>
-    </div>
-</section>
-<!-- DISPLAY -->
-
-<!-- FOOTER -->
+{{-- FOOTER --}}
 @include('layouts/footer')
-<!-- FOOTER -->
-    
-<!-- Bootstrap JavaScript Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-</script>
+{{-- FOOTER --}}
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-</script>
+<!-- Bootstrap JavaScript Libraries -->
+
 
 </body>
 </html>

@@ -32,6 +32,7 @@ Route::patch('/update-cart', [CartController::class, 'update'])->name('update.ca
 // to remove item from cart
 Route::delete('/remove-from-cart', [CartController::class, 'destroy'])->name('remove.from.cart');
 
+
 // SIGN UP PAGE
 // open sign up page
 Route::get('/signup', [CustomerController::class, 'index'])->name('signup');
@@ -49,9 +50,6 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 // redirect to homepage for logged in user
 // Route::get('/{name}', [HomeController::class, 'index'])->name('home');
 
-Route::get('/educative', function () {
-    return view('educative-books');
-})->name('educative');
 
 
 // logout authenticated user
@@ -65,13 +63,18 @@ Route::get('/', function () {
 })->name('homepage');
 
 
-// **  BOOK DSIPLAY PAGES  **
+// **  BOOK DISPLAY PAGES  **
 // SEARCH BAR 
 Route::post('/search', [BookDisplayController::class, 'search'])->name('search');
 
 // FILTER IN BOOK DISPLAY
 // Route::get('/filter', [BookDisplayController::class, 'filter'])->name('filter');
-Route::post('/filter', [BookDisplayController::class, 'filter'])->name('filter');
+Route::post('/filter', [BookDisplayController::class, 'searchFilter'])->name('filter');
+
+Route::get('/{type}', [BookDisplayController::class, 'type']);
+Route::post('/{type}', [BookDisplayController::class, 'typeFilter']);
+Route::get('/{type}/{category}', [BookDisplayController::class, 'typeCategory']);
+
 
 Route::get('/urdu', function () {
     return view('urdu-books');

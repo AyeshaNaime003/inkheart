@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Urdu Books</title>
+        <title>Search Result</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,14 +48,17 @@
             <button class="btn-peach-pink">Apply filter</button>
         </form>
     </div>
+    @php 
+        $counter = 0; 
+        $books=$books->toArray();
+        $running = True;
+        // CALCULATE NUMBER OF ROWS NEEDED
+        $rows = (count($books)/6) + 1;
+    @endphp
     {{-- MAIN BOOK DISPLAY --}}
     <div class="book-display w-100 py-0 px-2 m-0 text-center">        
         {{-- RUN LOOP TO RUN THE FIVE ROWS --}}
-        @php 
-            $counter = 0; 
-            $books=$books->toArray();
-        @endphp
-        @for($i=0; $i<5; $i++)
+        @for($i=1; $i<=$rows; $i++)
             <div class="row w-100 justify-content-center align-items-center g-2 my-3">
             @foreach(array_slice($books, $counter, 6) as $book)
                 <div class="book col-6 col-md-4 col-lg-2 py-3 mx-auto">
@@ -71,18 +74,6 @@
             @php $counter += 6; @endphp
             </div>
         @endfor
-    </div>
-    {{-- BUTTONS TO GO TO NEXR/PREVIOUS PAGES --}}
-    <div class="pages d-flex justify-content-center align-items-center my-3">
-        {{-- WILL SHOW THE FIRST #) --}}
-        <button class="btn btn-outline btn-outline-peach-pink mx-2" >First</button>
-        {{-- PREVIOUS 30 --}}
-        <button class="bg-peach-pink mx-2 btn">&lt&lt</button>
-        <button class="bg-dark text-light btn mx-2" disabled>Current Page</button>
-        {{-- NEXT 30 --}}
-        <button class="bg-peach-pink mx-2 btn">&gt&gt</button>
-        {{-- ALL THAT ARE LEFT AFTER DIVION BY 30 --}}
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">Last</button>
     </div>
 
 

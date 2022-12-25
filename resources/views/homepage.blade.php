@@ -44,7 +44,7 @@
                 <img class="d-block" src="https://erhsraider.org/wp-content/uploads/2015/09/SAT-and-PSAT-photo.gif" alt="educative books">
             </div>
             <div class="container">
-                <a href="{{route('educative')}}">
+                <a href="{{url('')}}/{{'educative'}}">
                     <div class="carousel-caption text-start">
                         <h1  class="text-center">EDUCATIVE BOOKS</h1>
                     </div>
@@ -57,7 +57,7 @@
                 <img class="d-block" src="https://live.staticflickr.com/492/31522791694_1ed3f3833d_b.jpg" alt="urdu books">
             </div>
             <div class="container">
-                <a href="{{route('urdu')}}">
+                <a href="{{url('')}}/{{'urdu'}}">
                     <div class="carousel-caption text-start">
                         <h1 class="text-center">URDU BOOKS</h1>
                     </div>
@@ -70,7 +70,7 @@
                 <img class="d-block" src="https://m2w4k5m5.stackpathcdn.com/wp-content/uploads/shutterstock_36770200.jpg" alt="islamic books">
             </div>
             <div class="container">
-                <a href="{{route('islamic')}}">
+                <a href="{{url('')}}/{{'islamic'}}">
                     <div class="carousel-caption text-start">
                         <h1 class="text-center">ISLAMIC BOOKS</h1>
                     </div>
@@ -83,7 +83,7 @@
                 <img class="d-block" src="https://www.realsimple.com/thmb/Sm40Cb1_Uqe_BaRxmLyCbyWKmz0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/romance-novels-2000-199452b65bf542c8bd3ca97990f12bb0.jpg" alt="leisure books">
             </div>
             <div class="container">
-                <a href="{{route('leisure')}}">
+                <a href="{{url('')}}/{{'leisure'}}">
                     <div class="carousel-caption text-start">
                         <h1 class="text-center">LEISURE BOOKS</h1>
                     </div>

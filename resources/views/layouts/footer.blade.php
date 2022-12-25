@@ -18,7 +18,7 @@
           <div class="col-6 col-md-3 text-center col2 p-2">
               <h5 class="m-3">Products</h5>
               <ul>
-              <li><a href={{route('educative')}} class="text-decoration-none">Educative</a></li>
+              <li><a href="{{url('/')}}/{{"educative"}}"class="text-decoration-none">Educative</a></li>
               <li><a href={{route('urdu')}} class="text-decoration-none">Urdu</a></li>
               <li><a href={{route('islamic')}} class="text-decoration-none">Islamic</a></li>
               <li><a href={{route('leisure')}} class="text-decoration-none">Leisure</a></li>
