@@ -21,8 +21,8 @@
               <li><a href={{route('urdu')}} class="text-decoration-none">Urdu</a></li>
               <li><a href={{route('islamic')}} class="text-decoration-none">Islamic</a></li>
               <li><a href={{route('leisure')}} class="text-decoration-none">Leisure</a></li>
-              <li><a href={{route('bestsellers')}} class="text-decoration-none">Best Sellers</a></li>
-              <li><a href={{route('recent')}} class="text-decoration-none">Recent in Stock</a></li>
+              <li><a href="" class="text-decoration-none">Best Sellers</a></li>
+              <li><a href="" class="text-decoration-none">Recent in Stock</a></li>
               </ul>
           </div>
           <div class="col-6 col-md-3 text-center col3 p-2">

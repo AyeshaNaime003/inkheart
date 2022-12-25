@@ -38,7 +38,7 @@
 @else
     <h1 class="display-6 mx-2 my-3">Leisure Books:</h1>
 @endif
-    <form action="{{url('')}}/{{"leisure"}}" method='post'>
+    <form action="{{url('/display')}}/{{"leisure"}}" method='post'>
         @csrf
         <select name="filter" id="">
             <option value="bestselling">Bestselling</option>
@@ -50,11 +50,11 @@
 </div>
 <!-- slide of filters-->
 <div class="row button-slider align-items-center text-center button-slider-pink g-2 mt-2 w-100">
-    <a href="{{url('')}}/{{'leisure'}}/{{'fiction'}}" class="col-4 col-md-3 col-lg mx-auto">Fiction</a>
-    <a href="{{url('')}}/{{'leisure'}}/{{'romance'}}" class="col-4 col-md-3 col-lg mx-auto">Romance</a>
-    <a href="{{url('')}}/{{'leisure'}}/{{'thriller'}}" class="col-4 col-md-3 col-lg mx-auto">Thriller</a>
-    <a href="{{url('')}}/{{'leisure'}}/{{'mystery'}}" class="col-4 col-md-3 col-lg mx-auto">Mystery</a>
-    <a href="{{url('')}}/{{'leisure'}}/{{'classic'}}" class="col-4 col-md-3 col-lg mx-auto">Classics</a>
+    <a href="{{url('/display')}}/{{'leisure'}}/{{'fiction'}}" class="col-4 col-md-3 col-lg mx-auto">Fiction</a>
+    <a href="{{url('/display')}}/{{'leisure'}}/{{'romance'}}" class="col-4 col-md-3 col-lg mx-auto">Romance</a>
+    <a href="{{url('/display')}}/{{'leisure'}}/{{'thriller'}}" class="col-4 col-md-3 col-lg mx-auto">Thriller</a>
+    <a href="{{url('/display')}}/{{'leisure'}}/{{'mystery'}}" class="col-4 col-md-3 col-lg mx-auto">Mystery</a>
+    <a href="{{url('/display')}}/{{'leisure'}}/{{'classic'}}" class="col-4 col-md-3 col-lg mx-auto">Classics</a>
 </div>
 
 

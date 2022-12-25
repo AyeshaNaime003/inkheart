@@ -50,13 +50,13 @@
 </div>
 <!-- slide of filters-->
 <div class="row button-slider align-items-center text-center button-slider-pink g-2 mt-2 w-100">
-    <a href="{{url('')}}/{{'educative'}}/{{'History'}}" class="col-4 col-md-3 col-lg mx-auto">History</a>
-    <a href="{{url('')}}/{{'educative'}}/{{'Medical'}}" class="col-4 col-md-3 col-lg mx-auto">Medical</a>
-    <a href="{{url('')}}/{{'educative'}}/{{'Computing'}}" class="col-4 col-md-3 col-lg mx-auto">Computing</a>
-    <a href="{{url('')}}/{{'educative'}}/{{'Business and Accounting'}}" class="col-4 col-md-3 col-lg mx-auto">Business and Accounting</a>
-    <a href="{{url('')}}/{{'educative'}}/{{'Chemistry'}}" class="col-4 col-md-3 col-lg mx-auto">Chemistry</a>
-    <a href="{{url('')}}/{{'educative'}}/{{'Physics'}}" class="col-4 col-md-3 col-lg mx-auto">Physics</a>
-    <a href="{{url('')}}/{{'educative'}}/{{'Exam Preparation'}}" class="col-4 col-md-3 col-lg mx-auto">Exam Preparation</a>
+    <a href="{{url('/display')}}/{{'educative'}}/{{'History'}}" class="col-4 col-md-3 col-lg mx-auto">History</a>
+    <a href="{{url('/display')}}/{{'educative'}}/{{'Medical'}}" class="col-4 col-md-3 col-lg mx-auto">Medical</a>
+    <a href="{{url('/display')}}/{{'educative'}}/{{'Computing'}}" class="col-4 col-md-3 col-lg mx-auto">Computing</a>
+    <a href="{{url('/display')}}/{{'educative'}}/{{'Business and Accounting'}}" class="col-4 col-md-3 col-lg mx-auto">Business and Accounting</a>
+    <a href="{{url('/display')}}/{{'educative'}}/{{'Chemistry'}}" class="col-4 col-md-3 col-lg mx-auto">Chemistry</a>
+    <a href="{{url('/display')}}/{{'educative'}}/{{'Physics'}}" class="col-4 col-md-3 col-lg mx-auto">Physics</a>
+    <a href="{{url('/display')}}/{{'educative'}}/{{'Exam Preparation'}}" class="col-4 col-md-3 col-lg mx-auto">Exam Preparation</a>
 </div>
 
 

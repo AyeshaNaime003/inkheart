@@ -30,31 +30,8 @@
 @include('layouts/header-row2')
 <!-- HEADER -->
 
-<!-- DISPLAY -->
-<section id="main" class="container-fluid p-0 my-3">
-    <div class="d-flex align-items-center justify-content-between px-5">
-        <h1 class="display-6 mx-2 my-3">Best Sellers</h1>
-        <form action="">
-            <select name="" id="">
-                <option value="1">Lowest to highest price</option>
-                <option value="1">Highest to lowest price</option>
-                <option value="1">Oldest to Newest Books</option>
-                <option value="1">Newest to Oldest Books</option>
-            </select>
-        </form>
-    </div>
-    <!-- books -->
-    @include('layouts/book-display') 
-    <!-- pages -->
-    <div class="pages d-flex justify-content-center align-items-center">
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">First</button>
-        <button class="bg-peach-pink mx-2 btn">&lt&lt</button>
-        <button class="bg-dark text-light btn mx-2">Current Page</button>
-        <button class="bg-peach-pink mx-2 btn">&gt&gt</button>
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">Last</button>
-    </div>
-</section>
-<!-- DISPLAY -->
+{{-- MAIN DISPLAY OF BEST SELLING BOOKS --}}
+
 
 <!-- FOOTER -->
 @include('layouts/footer')

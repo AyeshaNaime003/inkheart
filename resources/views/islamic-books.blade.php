@@ -38,7 +38,7 @@
 @else
     <h1 class="display-6 mx-2 my-3">Islamic Books:</h1>
 @endif
-    <form action="{{url('')}}/{{"educative"}}" method='post'>
+    <form action="{{url('/display')}}/{{"islamic"}}" method='post'>
         @csrf
         <select name="filter" id="">
             <option value="bestselling">Bestselling</option>
@@ -50,11 +50,11 @@
 </div>
 <!-- slide of filters-->
 <div class="row button-slider align-items-center text-center button-slider-pink g-2 mt-2 w-100">
-    <a href="{{url('')}}/{{'islamic'}}/{{'quran'}}" class="col-4 col-md-3 col-lg mx-auto">Quran</a>
-    <a href="{{url('')}}/{{'islamic'}}/{{'hadith'}}" class="col-4 col-md-3 col-lg mx-auto">Hadith</a>
-    <a href="{{url('')}}/{{'islamic'}}/{{'tafseer'}}" class="col-4 col-md-3 col-lg mx-auto">Tafseer</a>
-    <a href="{{url('')}}/{{'islamic'}}/{{'general'}}" class="col-4 col-md-3 col-lg mx-auto">General</a>
-    <a href="{{url('')}}/{{'islamic'}}/{{'biography'}}" class="col-4 col-md-3 col-lg mx-auto">Biography</a>
+    <a href="{{url('/display')}}/{{'islamic'}}/{{'quran'}}" class="col-4 col-md-3 col-lg mx-auto">Quran</a>
+    <a href="{{url('/display')}}/{{'islamic'}}/{{'hadith'}}" class="col-4 col-md-3 col-lg mx-auto">Hadith</a>
+    <a href="{{url('/display')}}/{{'islamic'}}/{{'tafseer'}}" class="col-4 col-md-3 col-lg mx-auto">Tafseer</a>
+    <a href="{{url('/display')}}/{{'islamic'}}/{{'general'}}" class="col-4 col-md-3 col-lg mx-auto">General</a>
+    <a href="{{url('/display')}}/{{'islamic'}}/{{'biography'}}" class="col-4 col-md-3 col-lg mx-auto">Biography</a>
 </div>
 
 

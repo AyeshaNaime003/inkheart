@@ -58,9 +58,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 // HOME PAGE LINKS
-Route::get('/', function () {
-    return view('homepage');
-})->name('homepage');
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 
 // **  BOOK DISPLAY PAGES  **
@@ -71,9 +69,9 @@ Route::post('/search', [BookDisplayController::class, 'search'])->name('search')
 // Route::get('/filter', [BookDisplayController::class, 'filter'])->name('filter');
 Route::post('/filter', [BookDisplayController::class, 'searchFilter'])->name('filter');
 
-Route::get('/{type}', [BookDisplayController::class, 'type']);
-Route::post('/{type}', [BookDisplayController::class, 'typeFilter']);
-Route::get('/{type}/{category}', [BookDisplayController::class, 'typeCategory']);
+Route::get('/display/{type}', [BookDisplayController::class, 'type']);
+Route::post('/diaplay/{type}', [BookDisplayController::class, 'typeFilter']);
+Route::get('/display/{type}/{category}', [BookDisplayController::class, 'typeCategory']);
 
 
 Route::get('/urdu', function () {
@@ -88,13 +86,7 @@ Route::get('/leisure', function () {
     return view('leisure-books');
 })->name('leisure');
 
-Route::get('/bestsellers', function () {
-    return view('bestsellers-books');
-})->name('bestsellers');
-
-Route::get('/recent', function () {
-    return view('recent-books');
-})->name('recent');
+Route::get('/bestselling', function(){echo "bestselling";});
 
 Route::get('/exchange-refund', function () {
     return view('exchange-refund');

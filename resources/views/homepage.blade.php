@@ -29,6 +29,14 @@
 @include('layouts/header-row1')
 @include('layouts/header-row2')
 
+
+{{-- TESTING --}}
+<pre>
+@php 
+    $bestSellingBooks = $bestSellingBooks->toArray();
+    $recentBooks = $recentBooks->toArray();
+@endphp
+</pre>
 <!-- CAROUSEL -->
 <div id="carousel1" class="carousel slide mb-5" data-bs-ride="carousel" data-interval="false">
     <div class="carousel-indicators">
@@ -111,46 +119,18 @@
         <button class="my-btn-bold bg-peach-pink text-light"><a href="./bestsellers-books.html">View All</a></button>
     </div>
     <div class="row m-0 p-0 bg-dark text-light text-center">
-        <!-- book1 -->
-        <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="#" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
-            </a>
-            <p class="book-author">Madelline Miller</p>
-            <p cla mt-ss="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
-        </div>
-        <!-- book2 -->
-        <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
-            </a>
-            <p class="book-author">Madelline Miller</p>
-            <p class="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
-        </div>
-        <!-- book3 -->
-        <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
-            </a>
-            <p class="book-author">Madelline Miller</p>
-            <p class="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
-        </div>
-        <!-- book4 -->
-        <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
-            </a>
-            <p class="book-author">Madelline Miller</p>
-            <p class="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
-        </div>
+        @foreach(array_slice($bestSellingBooks, 0, 4) as $book)
+            <!-- book1 -->
+            <div class="col-6 col-md-3 my-4 mx-auto">
+                <a href="{{url('book-detail')}}/{{$book['ISBN']}}" class="book-link">
+                    <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
+                    <h5 class="book-name">{{$book['title']}}</h5>
+                </a>
+                    <p class="book-author">{{$book['name']}}</p>
+                    <p cla mt-ss="book-price">RS {{$book['price']}}</p>
+                <a href="{{url('book-detail')}}/{{$book['ISBN']}}"><button class="btn-peach-pink add-to-cart">View</button></a>
+            </div>
+        @endforeach
     </div>
 </div>
 <!-- BESTSELLING -->
@@ -160,30 +140,7 @@
 <!-- CARDS -->
 <div id="myCards" class="container-fluid p-0 m-0">
     <div class="row w-100 py-5 px-3 p-0 text-dark text-center">
-        <div class="col-6 col-lg-3 px-2. pb-3">
-            <div class="bg-peach-pink text-light circle mx-auto d-flex align-items-center justify-content-center mb-2"> 
-                <span class="material-symbols-outlined d-block">category</span>
-            </div>
-            <h5 class="fw-normal text-peach-pink">Wide Variety of Books</h5>
-        </div>
-        <div class="col-6 col-lg-3 px-2.5 pb-3">
-            <div class="bg-peach-pink text-light circle mx-auto d-flex align-items-center justify-content-center mb-2"> 
-                <span class="material-symbols-outlined d-block">local_shipping</span>
-            </div>
-            <h5 class="fw-normal text-peach-pink">Speedy shipping, orders above 2000PKR have free delivery</h5>
-        </div>
-        <div class="col-6 col-lg-3 px-2.5 pb-3">
-            <div class="bg-peach-pink text-light circle mx-auto d-flex align-items-center justify-content-center mb-2">  
-                <span class="material-symbols-outlined d-block">chat</span>
-            </div>
-            <h5 class="fw-normal text-peach-pink">24/7 Customer service</h5>
-        </div>
-        <div class="col-6 col-lg-3 px-2.5 pb-3">
-            <div class="bg-peach-pink text-light circle mx-auto d-flex align-items-center justify-content-center mb-2"> 
-                <span class="material-symbols-outlined d-block">history</span>
-            </div>
-            <h5 class="fw-normal text-peach-pink">Return Warranty</h5>
-        </div>
+      
     </div>
 </div>
 <!-- CARDS ENDING-->
@@ -197,46 +154,17 @@
         <button class="my-btn-bold bg-peach-pink text-light"><a href="./recent-books.html">View All</a></button>
     </div>
     <div class="row m-0 p-0 bg-dark text-light text-center">
-        <!-- book1 -->
+        @foreach(array_slice($recentBooks, 0, 4) as $book)
         <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
+            <a href="{{url('book-detail')}}/{{$book['ISBN']}}" class="book-link">
+                <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
+                <h5 class="book-name">{{$book['title']}}</h5>
             </a>
-            <p class="book-author">Madelline Miller</p>
-            <p cla mt-ss="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
+                <p class="book-author">{{$book['name']}}</p>
+                <p cla mt-ss="book-price">RS {{$book['price']}}</p>
+            <a href="{{url('book-detail')}}/{{$book['ISBN']}}"><button class="btn-peach-pink add-to-cart">View</button></a>
         </div>
-        <!-- book2 -->
-        <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
-            </a>
-            <p class="book-author">Madelline Miller</p>
-            <p class="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
-        </div>
-        <!-- book3 -->
-        <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
-            </a>
-            <p class="book-author">Madelline Miller</p>
-            <p class="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
-        </div>
-        <!-- book4 -->
-        <div class="col-6 col-md-3 my-4 mx-auto">
-            <a href="" class="book-link">
-                <div class="book-image-container"><img class="book-img" src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt=""></div>
-                <h5 class="book-name">The Song Of Achilles</h5>
-            </a>
-            <p class="book-author">Madelline Miller</p>
-            <p class="book-price">RS 1695</p>
-            <button class="btn btn-success add-to-cart">Add to Cart</button>
-        </div>
+    @endforeach
     </div>
 </div>
 <!-- RECENTLY ADDED TO THE STOCK: ENDED -->

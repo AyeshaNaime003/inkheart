@@ -38,7 +38,7 @@
 @else
     <h1 class="display-6 mx-2 my-3">Urdu Books:</h1>
 @endif
-    <form action="{{url('')}}/{{"educative"}}" method='post'>
+    <form action="{{url('/display')}}/{{"urdu"}}" method='post'>
         @csrf
         <select name="filter" id="">
             <option value="bestselling">Bestselling</option>
@@ -50,9 +50,9 @@
 </div>
 <!-- slide of filters-->
 <div class="row button-slider align-items-center text-center button-slider-pink g-2 mt-2 w-100">
-    <a href="{{url('')}}/{{'urdu'}}/{{'Novel'}}" class="col-4 col-md-3 col-lg mx-auto">Novels</a>
-    <a href="{{url('')}}/{{'urdu'}}/{{'Poetry'}}" class="col-4 col-md-3 col-lg mx-auto">Poetry</a>
-    <a href="{{url('')}}/{{'urdu'}}/{{'Literature'}}" class="col-4 col-md-3 col-lg mx-auto">Literature</a>
+    <a href="{{url('/display')}}/{{'urdu'}}/{{'Novel'}}" class="col-4 col-md-3 col-lg mx-auto">Novels</a>
+    <a href="{{url('/display')}}/{{'urdu'}}/{{'Poetry'}}" class="col-4 col-md-3 col-lg mx-auto">Poetry</a>
+    <a href="{{url('/display')}}/{{'urdu'}}/{{'Literature'}}" class="col-4 col-md-3 col-lg mx-auto">Literature</a>
 </div>
 
 
