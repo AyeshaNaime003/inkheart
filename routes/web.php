@@ -96,7 +96,9 @@ Route::get('/leisure', function () {
     return view('leisure-books');
 })->name('leisure');
 
-Route::get('/bestselling', function(){echo "bestselling";});
+Route::get('/bestselling', [HomeController::class, 'bestselling']);
+
+Route::get('/recent', [HomeController::class, 'recent']);
 
 Route::get('/exchange-refund', function () {
     return view('exchange-refund');

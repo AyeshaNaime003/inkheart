@@ -10,7 +10,7 @@
                 <a class="dropdown-item" href="{{url('/display')}}/{{"islamic"}}">Islamic</a>
                 <a class="dropdown-item" href="{{url('/display')}}/{{"leisure"}}">Leisure</a>
                 <a class="dropdown-item" href="{{url('/bestselling')}}">Best Sellers</a>
-                <a class="dropdown-item">Recent in stock</a>
+                <a class="dropdown-item" href="{{url('/recent')}}">Recent in stock</a>
             </div>
         </div>
         <!-- menu bar for large screens -->
@@ -33,7 +33,7 @@
                     <a class="nav-link active"   href="{{url('/bestselling')}}"><h6>Best Sellers</h6></a>
                   </li>
                   <li class="nav-item d-block mx-md-3 px-1">
-                    <a class="nav-link active"><h6>Recent in stock</h6></a>
+                    <a class="nav-link active" href="{{url('/recent')}}"><h6>Recent in stock</h6></a>
                   </li>
                 </ul>
             </div>
