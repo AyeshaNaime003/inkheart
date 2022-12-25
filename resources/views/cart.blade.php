@@ -1,131 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <title>Cart</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- css link -->
-        <link rel="stylesheet" href={{url("css/utilities.css")}}>
-        <link rel="stylesheet" href={{url("css/cart.css")}}>
-      </head>
-<body>
-<!-- HEADER -->
-@include('layouts/header-row1')
-<!-- HEADER -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<div class="d-none d-md-block bg-peach-pink text-center py-4" style="font-size: 2.5rem; font-weight: bold; letter-spacing: 2px;">
-    Cart
-</div>
+  </head>
+  <body>
 
-<section id="cart">
-    <div class="container-fluid py-3 px-2">
-        @if (empty($cart_books))
-            <p>No items in cart</p>
-        @else
-            @php 
-                $counter = 0;
-            @endphp
-            
-            @foreach ($cart_books as $book)
-                <div class="cart-item row align-items-center">
-                    <div class="col-2 col-md item-img-container">
-                        <img src="https://m.media-amazon.com/images/I/51vRNqL61aL._AC_SY780_.jpg" alt="" class="cart-img">
-                    </div>
-                    <div class="col col-md">
-                        <span class="item-name">{{$book[0]['title']}}</span>
-                    </div>
-                    <div class="col-1 col-md remove">
-                        <form action="{{url('/delete-item')}}" method="post">
-                            @csrf
-                            <button name="delete-btn" class="btn remove-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                            </svg><span class="d-none d-sm-inline">Remove</span></button>
-                        </form>
-                    </div>
+    <!-- HEADER -->
+    @include('layouts/header-row1')
+    <!-- HEADER -->
 
-                    <div class="col-2 col-md">{{$book[0]['price']}}</div>
-                    <!-- saving price and quantity value for subtotal calculation -->
-                    @php 
-                    $price = $book[0]['price'];
-                    $cart = session()->get('cart');
-                        foreach ($cart as $item) {
-                            $index = array_search($book[0]['ISBN'], $item);
-                        }
-                        $quantity = $cart[$index][1];
+    <div class="d-none d-md-block bg-peach-pink text-center py-2 " style="font-size: 2.5rem; font-weight: bold; letter-spacing: 2px;">
+        Cart
+    </div>
 
-                        session()->flash('temp_isbn', $book[0]['ISBN'])
-                    @endphp
-                    
-                    <div class="col-2 d-flex justify-content-center align-items-center">
-                        <form action="{{url('/edit-cart')}}" method="post">
-                            @csrf
-                            <input type="hidden" name="bookid" value="$book[0]['ISBN']"/>
-                            <!-- to decrement book quantity -->
-                            <button class="btn" name="decrease" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
-                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/></svg>
-                                </button>
-                            <p class="text-centre my-auto inline" style="display:inline;">{{$quantity}}</p>
-                            <!-- to increment book quantity -->
-                            <button class="btn" name="increase">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="col-12 col-md">
-                        <Strong>Subtotal:</Strong>
-                        <span class="item-total-price">{{bcmul($price, $quantity, 2)}}</span>
-                    </div>
-                </div>
-                @php 
-                    $counter++;
-                @endphp
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+        <tr>
+            <th class="text-center" style="width:40%">Book</th>
+            <th style="width:15%">Price</th>
+            <th style="width:10%">Quantity</th>
+            <th style="width:25%" class="text-center">Subtotal</th>
+            <th style="width:10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @php $total = 0 @endphp
+        @if(session('cart'))
+            @foreach(session('cart') as $id => $details)
+                @php $total += $details['price'] * $details['quantity'];@endphp
+                <tr data-id="{{ $id }}">
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-3 hidden-xs px-5"><img src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" width="" height="100" class="mx-auto img-responsive"/></div>
+                            <div class="col-sm-9">
+                                <h4 class="nomargin">{{ $details['title'] }}</h4>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price">PKR {{ $details['price'] }}</td>
+                    <td data-th="Quantity">
+                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity update-cart" />
+                    </td>
+                    <td data-th="Subtotal" class="text-center">{{bcmul($details['quantity'], $details['price'])}}</td>
+                    <td class="actions" data-th="">
+                        <button class="btn btn-sm remove-from-cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
             @endforeach
         @endif
-        
-    </div>
-</section>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5" class="text-right"><h3><strong>Total ${{ $total }}</strong></h3></td>
+        </tr>
+        <tr>
+            <td colspan="5" class="text-right">
+                <a href="{{ url('/') }}" class="btn btn-peach-pink"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                <button class="btn btn-dark">Checkout</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+  
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 
+  $(".update-cart").change(function (e) {
+      e.preventDefault();
 
-<div class="container-fluid">
-    <div id="receipt">
-        <table class="w-100">
-            <tr>
-                <th class="py-2">Subtotal:</th>
-                <td class="text-end">Lorem.</td>
-            </tr>
-            <tr>
-                <th class="py-2">Shipping:</th>
-                <td class="text-end">lorem.</td>
-            </tr>
-            <tr>
-                <th class="py-2">Total:</th>
-                <td class="text-end">Lorem.</td>
-            </tr>
-        </table>
-    </div>
-</div>
+      var ele = $(this);
 
-
-<div class="btn-container d-flex align-items-center justify-content-between px-4">
-    <a href={{url()->previous()}}> <button class="btn btn-block btn-peach-pink p-2 m-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-      </svg> Back to Shopping</button></a>
-    <a href={{route("checkout")}}><button class="btn btn-block btn-dark m-2">Proceed to Check Out <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-      </svg></button></a>
-</div>
-</body>
-
+      $.ajax({
+          url: "{{ url('update-cart') }}",
+          type: "patch",
+          data: {
+              _token: '{{ csrf_token() }}', 
+              id: ele.parents("tr").attr("data-id"), 
+              quantity: ele.parents("tr").find(".quantity").val()
+          },
+          success: function (response) {
+              window.location.reload();
+          }
+      });
+  });
+  
+    $(".remove-from-cart").click(function (e) {
+        e.preventDefault();
+  
+        var ele = $(this);
+  
+        if(confirm("Are you sure want to remove?")) {
+            $.ajax({
+                url: '{{ route('remove.from.cart') }}',
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: ele.parents("tr").attr("data-id")
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
+  
+</script>
+  </body>
 </html>

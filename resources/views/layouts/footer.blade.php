@@ -3,7 +3,8 @@
     <div class="container-fluid p-2 bg-peach-pink text-light">
       <div class="row w-100">
           <div class="col-6 col-md-3">
-              <a href={{route('homepage')}} class="text-decoration-none text-light text-md-left my-2 d-block text-center"><img class="img-fluid logo-img-footer" src="./logos/book (1).png" alt=""><p class="m-auto text-logo">InkHeart</p></a>
+              <a href={{route('homepage')}} class="text-decoration-none text-light text-md-left my-2 d-block text-center">
+                <img class="img-fluid logo-img-footer" src="./logos/book (1).png" alt=""><p class="m-auto text-logo">InkHeart</p></a>
           </div>
           <div class="col-6 col-md-3 text-center col1 p-2">
               <h5 class="m-3">Customer Service</h5>
@@ -34,8 +35,8 @@
           </div>
       </div>
     </div>
-    <div class="copyright bg-peach-pink m-0 p-0">
-      <p class="text-copyright px-3">Copyright © 2022 InkHeart. The InkHeart is not responsible for the content of external sites. Read about our approach to external linking.</p>
+    <div class="copyright bg-peach-pink m-0 py-3">
+      <p class="text-copyright text-align-center px-3">Copyright © 2022 InkHeart. The InkHeart is not responsible for the content of external sites. Read about our approach to external linking.</p>
     </div>
   </footer>
   <!-- FOOTER -->

@@ -116,6 +116,30 @@
     header .row1 .header-icons:hover{
         color: var(--peach-pink);
     }
+    /* cart */
+    .total-header-section{
+        border-bottom:1px solid #d2d2d2;
+    }
+    .total-section p{
+        margin-bottom:20px;
+    }
+    .cart-detail{
+        padding:15px 0px;
+    }
+    .cart-detail-product p{
+        margin:0px;
+        color:#000;
+        font-weight:500;
+    }
+    .cart-detail .price{
+        font-size:12px;
+        margin-right:10px;
+        font-weight:500;
+    }
+    .cart-detail .count{
+        color:#C2C2DC;
+    }
+    /* cart */
     #cart-hover{
         display: none;
         position: absolute;

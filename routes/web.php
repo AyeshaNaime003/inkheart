@@ -24,13 +24,13 @@ use App\Http\Controllers\BookDisplayController;
 Route::get('/book-detail/{isbn}', [BookController::class, 'index'])->name('book-detail');
 
 // CART PAGE
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 // to insert new item into cart
-Route::post('/add-cart', [CartController::class, 'store']);
+Route::get('/add-to-cart/{id}', [CartController::class, 'store'])->name('add.to.cart');
 // to edit the quantity of item
-Route::post('/edit-cart', [CartController::class, 'edit']);
+Route::patch('/update-cart', [CartController::class, 'update'])->name('update.cart');
 // to remove item from cart
-Route::post('/delete-item', [CartController::class, 'destroy']);
+Route::delete('/remove-from-cart', [CartController::class, 'destroy'])->name('remove.from.cart');
 
 
 // SIGN UP PAGE
@@ -130,3 +130,4 @@ Route::get('/editbook', function () {
 Route::get('/addbook', function () {
     return view('addbook');
 })->name('addbook');
+

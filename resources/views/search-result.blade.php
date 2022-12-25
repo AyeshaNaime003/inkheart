@@ -62,13 +62,13 @@
             <div class="row w-100 justify-content-center align-items-center g-2 my-3">
             @foreach(array_slice($books, $counter, 6) as $book)
                 <div class="book col-6 col-md-4 col-lg-2 py-3 mx-auto">
-                    <a href="" class="book-link">
+                    <a href="{{url('book-detail')}}/{{$book['ISBN']}}" class="book-link">
                     <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
                     <h5 class="book-name">{{$book['title']}}</h5>
                     </a>
                     <p class="book-author">{{$book['name']}}</p>
-                    <p cla mt-ss="book-price">RS {{$book['price']}}</p>
-                    <button class="btn btn-success add-to-cart">Add to Cart</button>
+                    <p class="book-price">PKR {{$book['price']}}</p>
+                    <a href="{{url('book-detail')}}/{{$book['ISBN']}}"><button class="btn btn-success add-to-cart">View</button></a> 
                 </div>
             @endforeach
             @php $counter += 6; @endphp
