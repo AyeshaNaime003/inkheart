@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
@@ -133,3 +134,14 @@ Route::get('/addbook', function () {
     return view('addbook');
 })->name('addbook');
 
+// ADMIN PAGES
+Route::get('/admin', [AdminController::class, 'index']);
+// REMOVE
+Route::get('/admin/remove/{ISBN}', [AdminController::class, 'remove']);
+// ADD
+Route::get('/admin/addBook', function(){
+    return view('addbook');
+});
+Route::post('/admin/addBook', [AdminController::class, 'addBook']);
+// SEARCH
+Route::post('/admin/search', [AdminController::class, "search"]);

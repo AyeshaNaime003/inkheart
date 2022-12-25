@@ -31,12 +31,10 @@
 
 
 {{-- TESTING --}}
-<pre>
 @php 
     $bestSellingBooks = $bestSellingBooks->toArray();
     $recentBooks = $recentBooks->toArray();
 @endphp
-</pre>
 <!-- CAROUSEL -->
 <div id="carousel1" class="carousel slide mb-5" data-bs-ride="carousel" data-interval="false">
     <div class="carousel-indicators">
