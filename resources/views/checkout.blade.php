@@ -25,92 +25,129 @@
 
 <section id="checkout">
     <div class="container-fluid my-3">
+        <form action="{{url('order-confirm')}}" method="post"> 
             <div class="row">
                 <div class="col-12 col-md-8">
-                    <form action="">
+                        @csrf
                         <div class="row">
                             <div class="col-12" id="shipping-address">
                                 <h3>Shipping Address</h3>
                                 <label class="d-block" for="">Full Name</label>
-                                <input class="d-block" type="text" name="full-name">
+                                <input class="d-block" type="text" name="full-name" value="{{Auth::user()->first_name}}" readonly/>
 
                                 <div class="d-flex">
                                 <div class="w-50">
-                                        <label class="d-block" for="">State:</label>
-                                        <select class="d-block" name="state" id="">
-                                            <option value="lorem">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
+                                    <label class="d-block" for="">State:</label>
+                                        <select name="state" id="state" class="red">
+                                            <option>Select</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Sindh">Sindh</option>
+                                            <option value="KPK">KPK</option>
+                                            <option value="Balochistan">Balochistan</option>
+                                            <option value="FATA">FATA</option>
                                         </select>
+                                        <span class="text-danger">
+                                            @error('state')
+                                                {{$message}}
+                                            @enderror 
+                                        </span>
                                     </div>
 
                                     <div class="w-50">
                                         <label class="d-block" for="">City:</label>
-                                        <select class="d-block" name="city" id="" >
-                                            <option value="lorem">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
-                                            <option value="">Lorem.</option>
+                                        <select id="city" name="city">
+                                            <option>Select</option>
                                         </select>
+                                        <span class="text-danger">
+                                            @error('city')
+                                                {{$message}}
+                                            @enderror 
+                                        </span>
                                     </div>
                                 </div>
 
 
                                 <label class="d-block" for="">Street Address:</label>
+                                <span class="text-danger">
+                                    @error('street-house')
+                                    @php $message = 'Please enter address'; @endphp
+                                        {{$message}}
+                                    @enderror 
+                                </span>
                                 <input class="d-block" type="text" placeholder="Street Name and House Number"
                                 name="street-house">
                                 <input class="d-block" type="text" placeholder="Apartment, suite, unit etc. (optional)" name="extra">
+                               
 
                                 <label class="d-block" for="">Phone Number:</label>
-                                <input class="d-block" type="number" name="phone-number">
+                                <span class="text-danger">
+                                    @error('phone-number')
+                                    @php $message = 'Please enter phone number'; @endphp
+                                        {{$message}}
+                                    @enderror 
+                                </span>
+                                <input class="d-block" type="tel" name="phone-number">
+                                
 
                                 <label class="d-block" for="">Email:</label>
+                                <span class="text-danger">
+                                    @error('email')
+                                    @php $message = 'Please enter email'; @endphp
+                                        {{$message}}
+                                    @enderror 
+                                </span>
                                 <input class="d-block w-90" type="email" name="email">
+                                
                             </div>
                             <div class="col-12" id="payment-method">
                                 <h3>Payment Method:</h3>
+                                <span class="text-danger">
+                                    @error('payment-method')
+                                    @php $message = 'Please select payment method'; @endphp
+                                        {{$message}}
+                                    @enderror 
+                                </span>
                                 <ul>
                                     <li> <input type="radio" value="COD" name="payment-method"><span>Cash on Delivery</span></li>
                                 </ul>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="row">
                         <div id="cart-summary">
                             @include('layouts/minicart')
                         </div>
-                        <div id="receipt">
-                            <div class="container-fluid">
-                                <table class="w-100">
-                                    <tr>
-                                        <th class="py-2">Subtotal:</th>
-                                        <td class="text-end">Lorem.</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="py-2">Shipping:</th>
-                                        <td class="text-end">lorem.</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="py-2">Total:</th>
-                                        <td class="text-end">Lorem.</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <a href={{}}>
-                        <button class="btn btn-dark">Confirm Order</button>
-                    </a>
+                    <button class="btn btn-dark">Confirm Order</button>
                 </div>
             </div>
+        </form>
      </div>
+
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+     <script>
+        jQuery(document).ready(function($){
+    var optionSets ={
+	    Punjab:['Lahore','Faisalabad','Multan', 'Gujrat', 'Sargodha', 'Sialkot'],
+		KPK:['Peshawer','Kohat','Abottabad', 'Nowshera', 'Chitral'],
+		Sindh:['Karachi','Jacobabad','Hyderabad', 'Sukkur'],
+        Balochistan:['Quetta','Chaman','Gwadar', 'Turbat'],
+        FATA:['FATA']
+    }
+    { 
+     	let appendString ='<option value="Select">Select</option>';
+        for (let opt  in optionSets){  appendString+= '<option value="'+opt+'">'+opt+'</option>'}
+    	$('#state').html(appendString);
+    }
+    $('#state').on('change', function (e)  {
+	    let selectedGroup = this.value;
+ 	    let optGroup = optionSets[selectedGroup];
+	    let appendString ='<option value="Select">Select</option>';
+	    if (selectedGroup) { optGroup.forEach(val => appendString+= '<option value="'+val+'">'+val+'</option>')}
+	    $('#city').html(appendString);
+    });
+});
+     </script>
 </section>
 </body>
 </html>

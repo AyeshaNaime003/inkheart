@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\BookDisplayController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,15 @@ Route::get('/display/{type}', [BookDisplayController::class, 'type']);
 Route::post('/diaplay/{type}', [BookDisplayController::class, 'typeFilter']);
 Route::get('/display/{type}/{category}', [BookDisplayController::class, 'typeCategory']);
 
+// ** CHECKOUT AND DISPLAY ORDER PAGE **
+Route::get('/checkout', [OrderController::class, 'index'])->name('checkout');
+Route::post('/order-confirm', [OrderController::class, 'store']);
+Route::get('/order-receipt/{order_id}', [OrderController::class, 'show'])->name('test');
+
+// CHANGE PASSWORD
+Route::get('/change-password', [CustomerController::class, 'showChangePassword'])->name('change-password');
+Route::post('/updated-password', [CustomerController::class, 'updatePassword']);
+
 
 Route::get('/urdu', function () {
     return view('urdu-books');
@@ -112,10 +122,6 @@ Route::get('/book-detail', function () {
     return view('book-detail');
 })->name('book-detail');
 
-Route::get('/checkout', function () {
-    return view('checkout');
-})->name('checkout');
-
 Route::get('/shipping-delivery', function () {
     return view('shipping-delivery');
 })->name('ShippingandDelivery');
@@ -130,4 +136,6 @@ Route::get('/editbook', function () {
 Route::get('/addbook', function () {
     return view('addbook');
 })->name('addbook');
+
+
 

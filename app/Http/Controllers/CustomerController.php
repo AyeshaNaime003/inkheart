@@ -42,8 +42,8 @@ class CustomerController extends Controller
             [
                 'name' => 'required',
                 'email' => 'required|email|unique:users',
-                'password' => 'required|confirmed',
-                'password_confirmation' => 'required',
+                'password' => 'required|confirmed|min:8',
+                'password_confirmation' => 'required|min:8',
                 'checkbox' => 'present'
             ]
         );
@@ -64,25 +64,43 @@ class CustomerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show form for updating password
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showChangePassword()
     {
-        //
+        return view('/change-password');
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update the password.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function updatePassword(Request $request)
+    {   
+        $check = $request->validate(
+            [
+                'prev_password' => 'required|min:8',
+                'new_password' => 'required|min:8',
+                'password_confirmation' => 'required|min:8|same:new_password'
+            ]
+        );
+        $email = session()->get('email');
+        $user = User::select('users.password')->where('email', '=', $email)->get();
+
+        if (Hash::check($request['prev_password'], $user[0]['password'])){
+            $user = User::where('email', '=', $email)->update(['password' => Hash::make($request['new_password'])]);
+            session()->flash('pswd_msg', 'Password changed successfully!');
+            return redirect()->route('homepage')->with('success', 'Password changed successfully!');
+        }
+        else {
+            session()->flash('pswd_msg', 'Please try again!');
+            return redirect()->back();
+        }
     }
 
     /**
