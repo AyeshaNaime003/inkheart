@@ -22,11 +22,10 @@ return new class extends Migration
             $table->bigInteger('order_id');
             $table->foreign('order_id')->references('order_id')->on('order')->onDelete('cascade');
             // foreign key from discount table
-            $table->bigInteger('discount_id');
+            $table->bigInteger('discount_id')->nullable();
             $table->foreign('discount_id')->references('discount_id')->on('bookdiscount')->onDelete('cascade');
             
             $table->integer('quantity');
-            $table->decimal('amount');
             $table->timestamps();
 
             // making the coposition of two attributes unique

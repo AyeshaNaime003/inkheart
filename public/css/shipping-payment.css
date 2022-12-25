@@ -57,6 +57,18 @@
         /* display: block; */
         margin: 1rem auto;
     }
+    /* ORDER RECEIPT */
+    #order-receipt {
+        width: 70%;
+        margin: auto;
+        border: solid 1px lightgray;
+        border-radius: 20px;
+        margin: 2%;
+        padding: 3%;
+    }
+    .receipt-heading {
+        font-size: 1.2rem;
+    }
 }
 
 /* small */

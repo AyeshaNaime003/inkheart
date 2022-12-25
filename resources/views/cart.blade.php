@@ -34,7 +34,8 @@
         @php $total = 0 @endphp
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
-                @php $total += $details['price'] * $details['quantity'];@endphp
+                @php $total += $details['price'] * $details['quantity'];
+                session()->put('total', $total);@endphp
                 <tr data-id="{{ $id }}">
                     <td data-th="Product">
                         <div class="row">
@@ -63,12 +64,12 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="text-right"><h3><strong>Total ${{ $total }}</strong></h3></td>
+            <td colspan="5" class="text-right"><h3><strong>Total PKR {{ $total }}</strong></h3></td>
         </tr>
         <tr>
             <td colspan="5" class="text-right">
                 <a href="{{ url('/') }}" class="btn btn-peach-pink"><i class="fa fa-angle-left"></i> Continue Shopping</a>
-                <button class="btn btn-dark">Checkout</button>
+                <a id="checkout" href=""><button class="btn btn-dark" onclick="checkCart()" >Checkout</button></a>
             </td>
         </tr>
     </tfoot>
@@ -120,7 +121,17 @@
             });
         }
     });
-  
+
+    // checkout only when cart has items
+    function checkCart() {
+        @if(session()->get('cart') == null)
+            alert("No items in cart!")
+        @else 
+            document.getElementById("checkout").href="{{route('checkout')}}"; 
+            return false;
+        @endif
+    }
 </script>
+
   </body>
 </html>

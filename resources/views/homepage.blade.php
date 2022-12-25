@@ -29,12 +29,6 @@
 @include('layouts/header-row1')
 @include('layouts/header-row2')
 
-
-{{-- TESTING --}}
-@php 
-    $bestSellingBooks = $bestSellingBooks->toArray();
-    $recentBooks = $recentBooks->toArray();
-@endphp
 <!-- CAROUSEL -->
 <div id="carousel1" class="carousel slide mb-5" data-bs-ride="carousel" data-interval="false">
     <div class="carousel-indicators">
@@ -117,6 +111,10 @@
         <button class="my-btn-bold bg-peach-pink text-light"><a href="./bestsellers-books.html">View All</a></button>
     </div>
     <div class="row m-0 p-0 bg-dark text-light text-center">
+        @php 
+            $bestSellingBooks = $bestSellingBooks->toArray();
+            $recentBooks = $recentBooks->toArray();
+        @endphp
         @foreach(array_slice($bestSellingBooks, 0, 4) as $book)
             <!-- book1 -->
             <div class="col-6 col-md-3 my-4 mx-auto">
