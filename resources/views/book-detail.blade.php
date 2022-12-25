@@ -55,11 +55,11 @@
                     </li>
                 </ul>
                 <div class="w-100 quantity-add-div d-flex align-items-center justify-content-start px-2">
-                @if (Auth::user()) {
+                @if (Auth::user()) 
                     <p class="btn-holder">
                         <a href="{{ route('add.to.cart', $book[0]['ISBN']) }}" class="btn btn-peach-pink btn-block text-center" role="button">Add to cart</a> 
                     </p>
-                }@endif
+                @endif
                     
                 </div>
                 <!-- slide of buttons-->

@@ -16,16 +16,23 @@ class CartController extends Controller
     public function index()
     {
         $cart = session()->get('cart');
-        $no_of_books = count($cart, 0);
+        $no_of_items = count($cart, 0);
         $cart_books = array();
 
-        for ($i = 0; $i < $no_of_books; $i++){
-            $book = Book::select('book.*', 'bookstats.price')
-            ->join('bookstats', 'bookstats.ISBN', '=', 'book.ISBN')->where('book.ISBN', '=', $cart[$i][0])->get();
-            array_push($cart_books, $book);
-        }
+        if ($no_of_items > 0){
+            for ($i = 0; $i < $no_of_items; $i++){
+                $book = Book::select('book.*', 'bookstats.price')
+                ->join('bookstats', 'bookstats.ISBN', '=', 'book.ISBN')->where('book.ISBN', '=', $cart[$i][0])->get();
+                array_push($cart_books, $book);
+            }
+        } 
 
         return view('cart')->with(compact('cart_books'));
+    }
+
+    public function cart()
+    {
+        return view('cart');
     }
 
     /**
@@ -55,28 +62,48 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $temp_arr = session()->get('cart');
-        $url = '/book-detail'.'/'.$request['bookid'];
+    // public function store(Request $request)
+    // {
+    //     $temp_arr = session()->get('cart');
+    //     $url = '/book-detail'.'/'.$request['bookid'];
 
-        // check if item already exists in cart 
-        for ($i = 0; $i < count($temp_arr, 0); $i++) {
-            if (in_array($request['bookid'], $temp_arr[$i])) {
+    //     // check if item already exists in cart 
+    //     for ($i = 0; $i < count($temp_arr, 0); $i++) {
+    //         if (in_array($request['bookid'], $temp_arr[$i])) {
 
-                return redirect($url);
-            }
-        }
+    //             return redirect($url);
+    //         }
+    //     }
         
-        // check if quantity is greater than 0 for the item to be inserted in cart
-        if ($request['book_quantity'] < 1) {
-        }
-        else {
-            array_push($temp_arr, [$request['bookid'], $request['book_quantity']]);
-            session()->put('cart', $temp_arr);
+    //     // check if quantity is greater than 0 for the item to be inserted in cart
+    //     if ($request['book_quantity'] > 0) {
+    //         array_push($temp_arr, [$request['bookid'], $request['book_quantity']]);
+    //         session()->forget('cart');
+    //         session()->put('cart', $temp_arr);
+    //     }
+
+    //     return redirect($url);
+    // }
+    public function store($id) {
+        $test = Book::select('book.*', 'bookstats.price')
+        ->join('bookstats', 'bookstats.ISBN', '=', 'book.ISBN')->where('book.ISBN', '=', $id)->get();
+        $test = $test->toArray();
+          
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "title" => $test[0]['title'],
+                "quantity" => 1,
+                "price" => $test[0]['price'],
+                "img_link" => $test[0]['img_link']
+            ];
         }
 
-        return redirect($url);
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
     /**
@@ -87,24 +114,29 @@ class CartController extends Controller
      */
     public function edit(Request $request)
     {
-        $cart = session()->get('cart');
+        // $cart = session()->get('cart');
 
-        foreach ($cart as $item) {
-            $index = array_search($request['bookid'], $item);
-        }
-        // if the increase button is pressed, increment item quantity
-        if (isset($request['increase'])) {
-            $cart[$index][1]++;
-        }
-        // if the decrease button is pressed, decrement item quantity
-        if (isset($request['decrease'])) {
-            if ($cart[$index][1] > 1) {
-                $cart[$index][1]--;
-            }
-        }
-        session()->put('cart', $cart);
+        // $index = 0;
+        // for ($i = 0; $i < count($cart, 0); $i++) {
+        //     if (in_array($request['bookid'], $cart[$i])){
+        //         break;
+        //     }
+        //     $index = $i;
+        // }
+        // // if the increase button is pressed, increment item quantity
+        // if (isset($request['increase'])) {
+        //     $cart[$index][1]++;
+        // }
+        // // if the decrease button is pressed, decrement item quantity
+        // if (isset($request['decrease'])) {
+        //     if ($cart[$index][1] > 1) {
+        //         $cart[$index][1]--;
+        //     }
+        // }
+        // session()->forget('cart');
+        // session()->put('cart', $cart);
 
-        return redirect()->route('cart');
+        // return redirect()->route('cart');
     }
 
     /**
@@ -114,9 +146,14 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
     }
 
     /**
@@ -127,13 +164,28 @@ class CartController extends Controller
      */
     public function destroy(Request $request)
     {   
-        $cart = session()->get('cart');
+        // $cart = session()->get('cart');
 
-        foreach ($cart as $item) {
-            $index = array_search($request['bookid'], $item);
+        // $index = 0;
+        // for ($i = 0; $i < count($cart, 0); $i++) {
+        //     print_r($cart[$i]);
+        //     if (in_array($request['bookid'], $cart[$i])){
+        //         break;
+        //     }
+        // $index++;
+        // }
+        // unset($cart[$index]);
+        // session()->forget('cart');
+        // session()->put('cart', $cart);
+        // return redirect()->route('cart');
+
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
         }
-        unset($cart[$index]);
-        session()->put('cart', $cart);
-        return redirect()->route('cart');
     }
 }
