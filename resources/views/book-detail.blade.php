@@ -38,29 +38,29 @@
                     <img src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt="" class="book-img-detail">
                 </div>
             </div>
-            <div class="col-12 col-md-7 px-0 px-md-4">
-                <h1 class="book-name-detail">The Song Of Achilles</h1>
-                <p class="book-price-detail">RS 1695</p>
-                <ul class="text-dark">
-                    <li>Author: Lorem ipsum</li>
-                    <li>ISBN: 3863201876973913</li>
-                    <li>Publisher: Lorem, ipsum dolor.</li>
-                    <li>Format: Lorem, ipsum dolor.</li>
-                    <li>Language: lorem</li>
-                    <li>Categories:Autobiographies, Biographies, Memoirs & Letters, Politics & Government</li>
+            <div class="col-12 col-md-7 px-0 px-md-4 mt-3">
+                <h1 class="book-name-detail">{{$book[0]['title']}}</h1>
+                <p class="book-price-detail">{{$book[0]['price']}}</p>
+                <ul class="text-dark mb-4">
+                    <li class="my-2">Author: {{$book[0]['auth_name']}}</li>
+                    <li class="my-2">ISBN: {{$book[0]['ISBN']}}</li>
+                    <li class="my-2">Publisher: {{$book[0]['pub_name']}}</li>
+                    <li class="my-2">Language: {{$book[0]['language']}}</li>
+                    <li class="my-2">Categories:
+                        @php
+                            foreach($book_categories as $category) {
+                                echo $category['cat_name'].", ";
+                            }
+                        @endphp
+                    </li>
                 </ul>
                 <div class="w-100 quantity-add-div d-flex align-items-center justify-content-start px-2">
-                    <form action="{{url('/add-cart')}}" method="post">
-                        @csrf
-                        <!-- book quantity -->
-                        <input type="number" name="book_quantity" class="quantity" placeholder="0">
-                        <!-- passing the isbn through request -->
-                        <input type="hidden" name="bookid" value="{{$isbn}}">
-                        <!-- add to cart button -->
-                        <button name="add_cart" class="btn-peach-pink" onclick="cartMessage()">Add to Cart </button>
-                    </form>
+                @if (Auth::user()) {
+                    <p class="btn-holder">
+                        <a href="{{ route('add.to.cart', $book[0]['ISBN']) }}" class="btn btn-peach-pink btn-block text-center" role="button">Add to cart</a> 
+                    </p>
+                }@endif
                     
-                    <button class="btn btn-dark">Checkout</button>
                 </div>
                 <!-- slide of buttons-->
                 <div class="d-flex button-slider button-slider-detail button-slider-pink justify-content-around align-items-end g-2 mt-5 row w-100">
@@ -72,11 +72,13 @@
                     </button>
                 </div>
                 <div id="book-description">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora nemo assumenda alias expedita quis vel magnam necessitatibus quisquam! Nisi, sapiente molestiae. Itaque voluptates voluptas quaerat!
+                    {{$book[0]['description']}}
                 </div>
                 <div id="book-additional-info">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quas.
+                    <ul>Edition: {{$book[0]['edition']}}</ul>
+                    <ul>Publication date: {{$book[0]['publication_date']}}</ul>
                 </div>
+
                 <div id="book-reviews">
                     <ol>
                         <li class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero consectetur incidunt adipisci reprehenderit dolorem expedita voluptatum dolor! Quibusdam ipsa repudiandae labore ex alias. Deserunt explicabo blanditiis numquam labore molestias beatae!</li>

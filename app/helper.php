@@ -31,7 +31,7 @@ if(!function_exists('searchQuery')){
             // QUERY
             if(is_numeric($search)){
                 // SEACH  BY ISBN
-                $books = Book::select('book.*', 'author.name', 'bookstats.price', 'bookstats.quantity', 'bookstats.sold')->join('author', 'author.auth_id', '=', 'book.auth_id')->join('bookstats', 'bookstats.ISBN', '=', 'book.ISBN')->where('ISBN', '=', $search)->orderBy($filterName, $orderBy)->get();
+                $books = Book::select('book.*', 'author.name', 'bookstats.price', 'bookstats.quantity', 'bookstats.sold')->join('author', 'author.auth_id', '=', 'book.auth_id')->join('bookstats', 'bookstats.ISBN', '=', 'book.ISBN')->where('book.ISBN', '=', $search)->orderBy($filterName, $orderBy)->get();
             }else{
                 // SEARCH BY NAME, AUTHOR, CATEGORY
                 // NEED TO JOIN BOOK, AUTHOR AND BOOK_STATS TABLE TO GET FULL INFO
