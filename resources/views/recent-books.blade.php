@@ -31,32 +31,32 @@
 <!-- HEADER -->
 
 
-
-<!-- DISPLAY -->
-<section id="main" class="container-fluid p-0 my-3">
-    <div class="d-flex align-items-center justify-content-between px-5">
-        <h1 class="display-6 mx-2 my-3">Recent in Stock</h1>
-        <form action="">
-            <select name="" id="">
-                <option value="1">Bestselling</option>
-                <option value="1">Lowest to highest price</option>
-                <option value="1">Highest to lowest price</option>
-                <option value="1">Oldest to Newest Books</option>
-            </select>
-        </form>
-    </div>
-    <!-- books -->
-    @include('layouts/book-display')
-    <!-- pages -->
-    <div class="pages d-flex justify-content-center align-items-center">
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">First</button>
-        <button class="bg-peach-pink mx-2 btn">&lt&lt</button>
-        <button class="bg-dark text-light btn mx-2">Current Page</button>
-        <button class="bg-peach-pink mx-2 btn">&gt&gt</button>
-        <button class="btn btn-outline btn-outline-peach-pink mx-2">Last</button>
-    </div>
-</section>
-<!-- DISPLAY -->
+{{-- MAIN DISPLAY OF BEST RECENT BOOKS --}}
+@php 
+    $recentBooks=$recentBooks->toArray();
+    $counter = 0;
+    // CALCULATE NUMBER OF ROWS NEEDED
+    $rows = (count($recentBooks)/6) + 1;
+@endphp
+<div class="book-display w-100 py-0 px-2 m-0 text-center">        
+    {{-- RUN LOOP TO RUN THE FIVE ROWS --}}
+    @for($i=1; $i<=$rows; $i++)
+        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
+        @foreach(array_slice($recentBooks, $counter, 6) as $book)
+            <div class="book col-6 col-md-4 col-lg-3 col-xl-2 py-3 mx-auto">
+                <a href="{{url('book-detail')}}/{{$book['ISBN']}}" class="book-link">
+                <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
+                <h5 class="book-name">{{$book['title']}}</h5>
+                </a>
+                <p class="book-author">{{$book['name']}}</p>
+                <p cla mt-ss="book-price">RS {{$book['price']}}</p>
+                <a href="{{url('book-detail')}}/{{$book['ISBN']}}"><button class="btn btn-success add-to-cart">Add to Cart</button></a>
+            </div>
+        @endforeach
+        @php $counter += 6; @endphp
+        </div>
+    @endfor
+</div>
 
 <!-- FOOTER -->
 @include('layouts/footer')

@@ -63,13 +63,14 @@
                     
                 </div>
                 <!-- slide of buttons-->
-                <div class="d-flex button-slider button-slider-detail button-slider-pink justify-content-around align-items-end g-2 mt-5 row w-100">
-                    <button class="col-3 col-md" onClick="setSliderButtons(0)">Description
-                    </button>
-                    <button class="col-3 col-md" onClick="setSliderButtons(1)">Additional Information
-                    </button>
-                    <button class="col-3 col-md" onClick="setSliderButtons(2)">Reviews(0)
-                    </button>
+                <div class="d-flex button-slider button-slider-detail button-slider-pink justify-content-around align-items-end g-2 mt-5 row w-100 text-center">
+                    <a class="col mx-auto" ><button class="btn" onClick="setSliderButtons(0)">Description</button>
+                    </a>
+                    <a class="col mx-auto" ><button class="btn" onClick="setSliderButtons(1)">Additional Information</button> 
+                    </a>
+                    <a class="col mx-auto" ><button class="btn" onClick="setSliderButtons(2)">Description</button> 
+                    </a>
+            
                 </div>
                 <div id="book-description">
                     {{$book[0]['description']}}

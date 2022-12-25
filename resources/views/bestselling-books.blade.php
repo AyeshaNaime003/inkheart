@@ -30,8 +30,33 @@
 @include('layouts/header-row2')
 <!-- HEADER -->
 
-{{-- MAIN DISPLAY OF BEST SELLING BOOKS --}}
 
+{{-- MAIN DISPLAY OF BEST SELLING BOOKS --}}
+@php 
+    $bestSellingBooks=$bestSellingBooks->toArray();
+    $counter = 0;
+    // CALCULATE NUMBER OF ROWS NEEDED
+    $rows = (count($bestSellingBooks)/6) + 1;
+@endphp
+<div class="book-display w-100 py-0 px-2 m-0 text-center">        
+    {{-- RUN LOOP TO RUN THE FIVE ROWS --}}
+    @for($i=1; $i<=$rows; $i++)
+        <div class="row w-100 justify-content-center align-items-center g-2 my-3">
+        @foreach(array_slice($bestSellingBooks, $counter, 6) as $book)
+            <div class="book col-6 col-md-4 col-lg-3 col-xl-2 py-3 mx-auto">
+                <a href="{{url('book-detail')}}/{{$book['ISBN']}}" class="book-link">
+                <div class="book-image-container"><img class="book-img" src={{$book['img_link']}} alt=""></div>
+                <h5 class="book-name">{{$book['title']}}</h5>
+                </a>
+                <p class="book-author">{{$book['name']}}</p>
+                <p cla mt-ss="book-price">RS {{$book['price']}}</p>
+                <a href="{{url('book-detail')}}/{{$book['ISBN']}}"><button class="btn btn-success add-to-cart">Add to Cart</button></a>
+            </div>
+        @endforeach
+        @php $counter += 6; @endphp
+        </div>
+    @endfor
+</div>
 
 <!-- FOOTER -->
 @include('layouts/footer')

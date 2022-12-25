@@ -19,4 +19,9 @@ class HomeController extends Controller
         $bestSellingBooks = bestSellingBooks();
         return view('/bestselling-books')->with(compact('bestSellingBooks'));
     }
+
+    public function recent(){
+        $recentBooks = recentBooks();
+        return view('/recent-books')->with(compact('recentBooks'));
+    }
 }
