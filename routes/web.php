@@ -72,7 +72,7 @@ Route::post('/search', [BookDisplayController::class, 'search'])->name('search')
 Route::post('/filter', [BookDisplayController::class, 'searchFilter'])->name('filter');
 
 Route::get('/display/{type}', [BookDisplayController::class, 'type']);
-Route::post('/diaplay/{type}', [BookDisplayController::class, 'typeFilter']);
+Route::post('/display/{type}', [BookDisplayController::class, 'typeFilter']);
 Route::get('/display/{type}/{category}', [BookDisplayController::class, 'typeCategory']);
 
 // ** CHECKOUT AND DISPLAY ORDER PAGE **

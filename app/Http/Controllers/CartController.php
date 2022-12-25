@@ -36,27 +36,6 @@ class CartController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * 
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Request $request)
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  int  $id
@@ -84,16 +63,6 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
-    /**
-     * Perform editing of specified resource when appropriate button clicked.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request)
-    {
-    
-    }
 
     /**
      * Update the specified resource in storage.

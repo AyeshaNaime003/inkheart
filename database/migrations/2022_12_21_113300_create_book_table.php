@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ISBN')->primary();
             $table->string('title');
             $table->string('description');
-            $table->string('img_link');
+            $table->string('img_link')->default('https://images.template.net/2905/Simple-Children-s-Story-Book-Cover-Template-2x.jpg');
             $table->string('language')->default('en');
             $table->string('edition')->nullable();
             // foreign key from type table

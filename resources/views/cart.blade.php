@@ -39,7 +39,7 @@
                 <tr data-id="{{ $id }}">
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs px-5"><img src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" width="" height="100" class="mx-auto img-responsive"/></div>
+                            <div class="col-sm-3 hidden-xs px-5"><img src="{{ $details['img_link'] }}" width="" height="100" class="mx-auto img-responsive"/></div>
                             <div class="col-sm-9">
                                 <h4 class="nomargin">{{ $details['title'] }}</h4>
                             </div>
