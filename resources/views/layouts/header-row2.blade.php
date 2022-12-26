@@ -3,7 +3,7 @@
     <div class="container-fluid row2 p-0 m-0">
         <!-- drop down for small screen -->
         <div class="dropdown d-sm-none w-100 bg-peach-pink">
-            <button class="btn dropdown-toggle w-100 border-0" type="button" id="triggerId" data-bs-toggle="dropdown">Dropdown</button>
+            <button class="btn dropdown-toggle w-100 border-0" type="button" id="triggerId" data-bs-toggle="dropdown">Options</button>
             <div class="dropdown-menu w-100 bg-peach-pink">
                 <a class="dropdown-item" href="{{url('/display')}}/{{"educative"}}">Educative</a>
                 <a class="dropdown-item" href="{{url('/display')}}/{{"urdu"}}">Urdu</a>
