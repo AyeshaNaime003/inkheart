@@ -94,8 +94,5 @@
 @include('layouts/footer')
 {{-- FOOTER --}}
 
-<!-- Bootstrap JavaScript Libraries -->
-
-
 </body>
 </html>
