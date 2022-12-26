@@ -41,22 +41,16 @@
     <div class="jumbotron">
         <div class="container ">
             <h1 class="mt-4">Terms & Conditions</h1>
-            <p class="mt-4 mb-3">("you" or "End User" or "your" or "Buyer" or "Customer") are required to read and
+            <p class="mt-4 mb-3">Users are required to read and
                 accept
-                all of the terms and conditions laid down in this Terms and Conditions ("Terms and Conditions" or "TERMS
-                AND CONDITIONS" or "Terms" or "Agreement") and the linked Privacy Policy, before you may use
-                www.libertybooks.com (hereinafter referred to as "Site" or "LibertyBooks" or "LibertyBooks Online Store"
-                or "we" or "our"). The Site allows you to browse, select and purchase Books and related accessories
-                ("Goods" or "Products" or "Services").</p>
+                all of the terms and conditions laid down in this Terms and Conditions and the linked Privacy Policy, before you may use
+                www.inkheart.com . The Site allows you to browse, select and purchase Books.</p>
         </div>
         <div class="container mt-4 mb-4 ">
-            <p>Your use of this website www.libertybooks (hereinafter referred to as the "Site") and
+            <p>Your use of this website www.inkheart and
                 its
                 related sites, services, and tools. These TERMS AND CONDITIONS are effective upon acceptance and
-                governs the relationship between you and Liberty books Pvt. Ltd a company incorporated under The
-                Companies Ordinance, 1984 (Pakistan) having its registered office at C-16, Sector 31-A, Mehran Town,
-                Extension Near Brookes Chowrangi, Korangi Industrial Area, Karachi., Pakistan (hereinafter the
-                "Company") including the sale and supply of any Products on the Site. If these TERMS AND CONDITIONS
+                governs the relationship between you and Inkheart books Pvt. Ltd a company with registered office at NUST Islamabad, Pakistan including the sale and supply of any Products on the Site. If these TERMS AND CONDITIONS
                 conflicts with any other document, the TERMS AND CONDITIONS will prevail for the purposes of usage of
                 the Site. If you do not agree to be bound by these TERMS AND CONDITIONS and the Privacy Policy, you may
                 not use the Site in any way. For the purposes of these TERMS AND CONDITIONS the term 'Acceptance' shall
