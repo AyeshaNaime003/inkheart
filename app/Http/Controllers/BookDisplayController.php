@@ -37,13 +37,31 @@ class BookDisplayController extends Controller
     }
 
     public function typeFilter($type, Request $req){
-        $books = typeQuery(2, $req['filter'], null);
+        if($type=='educative'){
+            $typeNum = 2;
+        }else if($type=='urdu'){
+            $typeNum = 3;
+        }else if($type=='leisure'){
+            $typeNum = 4;
+        }else if($type=='islamic'){
+            $typeNum = 5;
+        }
+        $books = typeQuery($typeNum, $req['filter'], null);
         $view_page = $type."-books";
         return view($view_page)->with(compact('books'));
     }
 
     public function typeCategory($type, $category){
-        $books = typeQuery($type, null, $category);
+        if($type=='educative'){
+            $typeNum = 2;
+        }else if($type=='urdu'){
+            $typeNum = 3;
+        }else if($type=='leisure'){
+            $typeNum = 4;
+        }else if($type=='islamic'){
+            $typeNum = 5;
+        }
+        $books = typeQuery($typeNum, null, $category);
         $view_page = $type."-books";
         // echo "getting books of type=$type and category=$category";
         return view($view_page)->with(compact('books'));

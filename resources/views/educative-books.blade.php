@@ -38,7 +38,7 @@
 @else
     <h1 class="display-6 mx-2 my-3">Educative Books:</h1>
 @endif
-    <form action="{{url('')}}/{{"educative"}}" method='post'>
+    <form action="{{url('display')}}/{{"educative"}}" method='post'>
         @csrf
         <select name="filter" id="">
             <option value="bestselling">Bestselling</option>
@@ -81,7 +81,7 @@
                 <p class="book-author">{{$book['name']}}</p>
                 <p cla mt-ss="book-price">RS {{$book['price']}}</p>
                 <a href="{{url('book-detail')}}/{{$book['ISBN']}}">
-                    <button class="btn btn-success add-to-cart">Add to Cart</button>
+                    <button class="btn btn-success add-to-cart">View</button>
                 </a>
             </div>
         @endforeach

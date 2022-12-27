@@ -35,12 +35,12 @@
         <div class="row p-0 p-md-4 m-0 my-md-4">
             <div class="col-12 col-md-5">
                 <div class="book-img-container w-100">
-                    <img src="https://www.libertybooks.com/image/cache/catalog/01.iqbal%20ahmed/9781408891384-640x996.jpg?q6" alt="" class="book-img-detail">
+                    <img src="{{$book[0]['img_link']}}" alt="" class="book-img-detail">
                 </div>
             </div>
             <div class="col-12 col-md-7 px-0 px-md-4 mt-3">
                 <h1 class="book-name-detail">{{$book[0]['title']}}</h1>
-                <p class="book-price-detail">{{$book[0]['price']}}</p>
+                <p class="book-price-detail">PKR {{$book[0]['price']}}</p>
                 <ul class="text-dark mb-4">
                     <li class="my-2">Author: {{$book[0]['auth_name']}}</li>
                     <li class="my-2">ISBN: {{$book[0]['ISBN']}}</li>
@@ -68,7 +68,7 @@
                     </a>
                     <a class="col mx-auto" ><button class="btn" onClick="setSliderButtons(1)">Additional Information</button> 
                     </a>
-                    <a class="col mx-auto" ><button class="btn" onClick="setSliderButtons(2)">Description</button> 
+                    <a class="col mx-auto" ><button class="btn" onClick="setSliderButtons(2)">Reviews</button> 
                     </a>
             
                 </div>

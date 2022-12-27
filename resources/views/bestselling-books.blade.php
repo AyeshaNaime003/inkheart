@@ -50,7 +50,7 @@
                 </a>
                 <p class="book-author">{{$book['name']}}</p>
                 <p cla mt-ss="book-price">RS {{$book['price']}}</p>
-                <a href="{{url('book-detail')}}/{{$book['ISBN']}}"><button class="btn btn-success add-to-cart">Add to Cart</button></a>
+                <a href="{{url('book-detail')}}/{{$book['ISBN']}}"><button class="btn btn-success add-to-cart">View</button></a>
             </div>
         @endforeach
         @php $counter += 6; @endphp

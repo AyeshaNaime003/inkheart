@@ -95,7 +95,7 @@ if(!function_exists('typeQuery')){
     
     if(!function_exists('recentBooks')){
         function recentBooks(){
-            $recentBooks = Book::select('book.*', 'author.name', 'bookstats.price', 'bookstats.quantity', 'bookstats.sold')->join('author', 'author.auth_id', '=', 'book.auth_id')->join('bookstats', 'bookstats.ISBN', '=', 'book.ISBN')->join('category', 'category.ISBN', '=', 'book.ISBN')->orderBy('sold', 'desc')->limit(50)->get();
+            $recentBooks = Book::select('book.*', 'author.name', 'bookstats.price', 'bookstats.quantity', 'bookstats.sold')->join('author', 'author.auth_id', '=', 'book.auth_id')->join('bookstats', 'bookstats.ISBN', '=', 'book.ISBN')->join('category', 'category.ISBN', '=', 'book.ISBN')->orderBy('publication_date', 'desc')->limit(50)->get();
             return $recentBooks;
         }
     }

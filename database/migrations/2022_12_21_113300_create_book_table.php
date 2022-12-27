@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('book', function (Blueprint $table) {
             $table->string('ISBN')->primary();
             $table->string('title');
-            $table->string('description');
+            $table->string('description', 2000);
             $table->string('img_link')->default('https://images.template.net/2905/Simple-Children-s-Story-Book-Cover-Template-2x.jpg');
             $table->string('language')->default('en');
             $table->string('edition')->nullable();
