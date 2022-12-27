@@ -63,8 +63,10 @@
             @foreach($books as $book)
                 <div class="cart-item row align-items-center mx-auto my-3 w-100">
                     <div class="col-2 col-md item-img-container d-none d-md-block">
-                        <img src={{$book['img_link']}} alt=""
+                        <a href="{{url('book-detail')}}/{{$book['ISBN']}}">
+                            <img src={{$book['img_link']}} alt=""
                             class="cart-img">
+                        </a>
                     </div>
                     <div class="col-3 col-md">
                         <span class="item-isbn">

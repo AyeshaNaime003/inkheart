@@ -96,7 +96,7 @@
                                         {{$message}}
                                     @enderror 
                                 </span>
-                                <input class="d-block w-90" type="email" name="email" value="{{Auth::user()->first_name}}" readonly>
+                                <input class="d-block w-90" type="email" name="email" value="{{Auth::user()->email}}" readonly>
                                 
                             </div>
                             <div class="col-12" id="payment-method">

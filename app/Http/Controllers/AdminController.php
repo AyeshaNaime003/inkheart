@@ -32,7 +32,7 @@ class AdminController extends Controller
         var_dump($r);
     }
 
-    public function search(){
+    public function search(Request $request){
             // GET THE WORDS TO PERFORM SEARCH
             $books = searchQuery($search = $request['search']??"", null);
             return view('adminhome')->with(compact('books'));
